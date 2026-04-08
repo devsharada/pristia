@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme{
+--font-poppins: 'Poppins', sans-serif;
+--font-oldstandtt: 'Old Standard TT', serif;
+--color-faf7f0: #FAF7F0;
+--color-0f5444: #0F5444;
+--color-9d9b9b: #9D9B9B;
+--color-08503f: #08503F;
+--color-1e1e1e: #1e1e1e;
+--color-c09d0d: #c09d0d;
+--color-f7f7f7: #f7f7f7;
+--color-29b369: #29b369;
+--color-2a82c4: #2a82c4;
+--color-9d9b9b33: #9d9b9b33;
+--color-08503f80: #08503F80;
+--color-eee: #eee;
+--color-032b76: #032B76; /* for admin panel */
+}
+
+body {
+   font-family: "Poppins", sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+   font-family: "Old Standard TT", serif;
+}
+.font-Geist{
+  font-family: "Geist", sans-serif;
+}
+.font-Geist h1, .font-Geist h2, .font-Geist h3, .font-Geist h4, .font-Geist h5, .font-Geist h6 {
+  font-family: "Geist", sans-serif!important;
+}

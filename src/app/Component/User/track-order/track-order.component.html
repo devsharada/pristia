@@ -1,0 +1,93 @@
+<div class="fixed inset-0 bg-black/40 bg-opacity-40 flex items-center justify-center z-50" (click)="close()">
+  <div class="bg-white rounded-2xl shadow-xl w-[90%] max-w-lg p-4 relative" (click)="$event.stopPropagation()">
+    <!-- Close button -->
+    <button (click)="close()"
+      class="absolute top-1 right-1 text-gray-600 hover:text-black hover:bg-faf7f0 px-2 py-1 rounded-md text-xl">
+      ✕
+    </button>
+    <div class="max-h-[80vh] overflow-y-auto">
+      <div class="px-2 sm:px-4 py-2 bg-faf7f0 rounded-md">
+        <div *ngFor="let item of orderItems" class="flex items-start gap-2 lg:gap-4 py-2  border-b border-gray-300">
+          <div class="relative size-8 md:size-12 lg:size-20">
+            <img class="size-full rounded-lg shadow-(--shadow1)" [src]="item.image" [alt]="item.name">
+            <div
+              class="absolute -top-2 -right-1 size-4 sm:size-5 rounded-full bg-29b369 flex items-center justify-center">
+              <p class="text-white font-semibold text-[9px] sm:text-[10px]">{{ item.quantity }}</p>
+            </div>
+          </div>
+          <div class="w-[calc(100%-40px)] md:w-[calc(100%-54px)] lg:w-[calc(100%-96px)]">
+            <p
+              class="text-1e1e1e font-oldstandtt font-normal text-sm md:text-base lg:text-lg flex items-center justify-between gap-2">
+              <span class="block w-full">{{ item.name }}</span>
+            </p>
+
+            <div class="flex items-center justify-between mt-1">
+              <!-- Price -->
+              <p class="whitespace-nowrap text-xs sm:text-[13px] md:text-
+            [15px] font-medium text-1e1e1e">
+                ₹ {{ item.price | number }}
+              </p>
+              <!-- product Total quantitywise-->
+              <div class="whitespace-nowrap text-xs sm:text-[13px] md:text-base font-semibold text-1e1e1e">
+                ₹ {{ getItemTotal(item) | number }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="py-2">
+          <div class="space-y-1 border-b border-eee pb-2">
+            <div class="flex items-center justify-between text-1e1e1e font-medium text-xs sm:text-sm xl:text-base">
+              <p>Subtotal</p>
+              <p>₹ {{ getCartTotal() | number }}</p>
+            </div>
+            <div class="flex items-center justify-between text-1e1e1e font-normal text-xs sm:text-sm xl:text-base">
+              <p>Shipping</p>
+              <p>₹ {{ shippingCharge | number }}</p>
+            </div>
+            <div class="flex items-center justify-between text-1e1e1e font-normal text-xs sm:text-sm xl:text-base">
+              <p>Tax</p>
+              <p>₹ {{ tax | number }}</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-1e1e1e font-semibold text-base sm:text-lg xl:text-lg pt-2">
+            <p>Total</p>
+            <p>₹ {{ getFinalTotal() | number }}</p>
+          </div>
+        </div>
+      </div>
+      <!-- track order -->
+      <h2 class="text-lg sm:text-xl md:text-xl lg:text-2xl font-medium mb-4 text-1e1e1e lg:text-center mt-3">Track Order
+      </h2>
+
+      <div class="flex flex-col gap-6 lg:ps-10">
+        <ng-container *ngFor="let step of steps">
+          <div class="flex items-center gap-3">
+            <div class="relative flex items-center justify-center">
+              <div class="size-10 rounded-full flex items-center justify-center border-1 border-eee" [ngClass]="{
+                'bg-green-100 border-green-600': isCompleted(step.name),
+                'bg-blue-100 border-blue-600': isActive(step.name),
+                'bg-gray-100 border-gray-400': !isCompleted(step.name) && !isActive(step.name)
+              }">
+                <img [src]="step.icon" class="size-6" [alt]="step.name" />
+              </div>
+            </div>
+
+            <div>
+              <p class="text-sm lg:text-base font-medium" [ngClass]="{
+                 'text-green-600': isCompleted(step.name),
+                 'text-blue-600': isActive(step.name),
+                 'text-gray-500': !isCompleted(step.name) && !isActive(step.name)
+               }">
+                {{ step.name }}
+              </p>
+              <p class="text-xs sm:text-sm text-9d9b9b" *ngIf="step.datetime && step.location">
+                {{ step.datetime }} - {{ step.location }}
+              </p>
+              <p class="text-[11px] sm:text-xs text-gray-400" *ngIf="isActive(step.name)">Currently here</p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

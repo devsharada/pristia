@@ -1,0 +1,119 @@
+<div class="w-full p-2 sm:p-4 lg:py-5 xl:px-20">
+  <div class="w-full bg-white">
+    <div class="md:flex items-start gap-2 sm:gap-2.5 md:gap-3">
+      <div class="w-full md:w-1/2">
+        <img class="size-16 lg:size-20 xl:size-25 mx-auto mb-2" src="/assets/images/home/success.gif" alt="success">
+        <h1 class="text-[#419f01] text-xl md:text-2xl lg:text-3xl xl:text-[40px]/normal capitalize mb-4">Thank
+          you for your purchase!</h1>
+        <p class="text-sm md:text-base xl:text-lg text-9d9b9b">We will process your order within 24 hours on working
+          days. You will receive an email when your order is shipped, along with a copy of your receipt.</p>
+
+        <div class="space-y-1 mt-4 text-9d9b9b">
+          <p class="text-1e1e1e font-semibold text-base md:text-lg lg:text-xl mb-3">Billing Address</p>
+          <p class="text-sm lg:text-base"><span class="font-medium text-1e1e1e">Name : </span>John Doe</p>
+          <p class="text-sm lg:text-base"><span class="font-medium text-1e1e1e">Email : </span>abc&#64;gmail.com</p>
+          <p class="text-sm lg:text-base"><span class="font-medium text-1e1e1e">Phone No. : </span>+91 9087654321</p>
+          <p class="text-sm lg:text-base"><span class="font-medium text-1e1e1e">Address : </span>125, Dharamshala, Lane
+            4
+            New Delhi, 110059</p>
+        </div>
+        <div class="space-y-1 mt-4 text-9d9b9b">
+          <p class="text-1e1e1e font-semibold text-base md:text-lg lg:text-xl mb-3">Shipping Address</p>
+          <p class="text-sm lg:text-base"><span class="font-medium text-1e1e1e">Name : </span>John Doe</p>
+          <p class="text-sm lg:text-base"><span class="font-medium text-1e1e1e">Email : </span>abc&#64;gmail.com</p>
+          <p class="text-sm lg:text-base"><span class="font-medium text-1e1e1e">Phone No. : </span>+91 9087654321</p>
+          <p class="text-sm lg:text-base"><span class="font-medium text-1e1e1e">Address : </span>125, Dharamshala, Lane
+            4
+            New Delhi, 110059</p>
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 mt-4 md:mt-0">
+        <div class="h-4 rounded-full bg-9d9b9b33">
+        </div>
+        <div class="bg-faf7f0 mx-3 -mt-2 ">
+          <div class="p-2 md:p-4 xl:px-6 xl:pt-4 xl:pb-2">
+            <p
+              class="font-oldstandtt font-semibold text-1e1e1e text-center text-xl lg:text-2xl xl:text-3xl pb-3 2l:pb-4 border-b border-9d9b9b">
+              Order Summary</p>
+
+            <div class="sm:flex items-center justify-center 2xl:gap-4 py-2.5 xl:py-5 border-b-2 border-dashed border-9d9b9b">
+              <div class="flex gap-2 sm:block px-4">
+                <p class="text-gray-500 font-normal text-sm xl:text-base">Date : </p>
+                <p class="text-1e1e1e text-sm xl:text-base font-medium">06 Oct, 2025</p>
+              </div>
+              <div class="flex gap-2 sm:block sm:border-x border-9d9b9b px-4">
+                <p class="text-gray-500 font-normal text-sm xl:text-base">Order ID : </p>
+                <p class="text-1e1e1e text-sm xl:text-base font-medium">2345678</p>
+              </div>
+              <div class="flex gap-2 sm:block px-4">
+                <p class="text-gray-500 font-normal text-sm xl:text-base">Payment Method : </p>
+                <p class="text-1e1e1e text-sm xl:text-base font-medium">UPI</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-2 md:px-4 xl:px-6 py-4">
+            <div *ngFor="let item of orderItems" class="flex items-start gap-2 lg:gap-4 py-4 border-b border-gray-300">
+              <div class="relative size-12 lg:size-14 xl:size-20">
+                <img class="size-full rounded-lg shadow-(--shadow1)" [src]="item.image" [alt]="item.name">
+                <div
+                  class="absolute -top-2 -right-1 size-4 sm:size-5 rounded-full bg-08503f flex items-center justify-center">
+                  <p class="text-white font-semibold text-[9px] sm:text-[10px]">{{ item.quantity }}</p>
+                </div>
+              </div>
+              <div class="w-[calc(100%-54px)] lg:w-[calc(100%-72px)] xl:w-[calc(100%-96px)]">
+                <p
+                  class="font-oldstandtt text-1e1e1e font-normal text-base lg:text-xl/tight flex items-center justify-between gap-2">
+                  {{ item.name }}
+                </p>
+
+                <p class="text-9d9b9b font-normal text-xs sm:text-sm md:text-base mt-1">Size : {{ item.size }}</p>
+
+
+                <div class="flex items-center justify-between mt-1">
+                  <!-- Price -->
+                  <p
+                    class="whitespace-nowrap text-xs sm:text-[13px] md:text-base lg:text-[15px] xl:text-base font-normal text-1e1e1e">
+                    ₹ {{ item.price | number }}
+                  </p>
+                  <!-- product Total quantitywise-->
+                  <div
+                    class="whitespace-nowrap text-xs sm:text-[13px] md:text-lg lg:text-[15px] xl:text-base font-medium text-1e1e1e">
+                    ₹ {{ getItemTotal(item) | number }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="py-2">
+              <div class="space-y-1 border-b border-gray-300 pb-2">
+                <div class="flex items-center justify-between text-1e1e1e font-normal text-xs sm:text-sm xl:text-base">
+                  <p>Subtotal</p>
+                  <p>₹ {{ getCartTotal() | number }}</p>
+                </div>
+                <div class="flex items-center justify-between text-9d9b9b font-normal text-xs sm:text-sm xl:text-base">
+                  <p>Shipping</p>
+                  <p>₹ {{ shippingCharge | number }}</p>
+                </div>
+                <div class="flex items-center justify-between text-9d9b9b font-normal text-xs sm:text-sm xl:text-base">
+                  <p>Tax</p>
+                  <p>₹ {{ tax | number }}</p>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between text-08503f font-semibold text-base sm:text-lg xl:text-xl pt-2">
+                <p>Total</p>
+                <p>₹ {{ getFinalTotal() | number }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <a ng-reflect-router-link="/home" routerLink="/home"
+      class="relative overflow-hidden cursor-pointer block w-max  mx-auto py-2 xl:py-2 px-5 mt-3 bg-08503f text-white text-base lg:text-lg xl:text-xl rounded-md text-center border border-08503f transition-all duration-300 hover:scale-[1.02]
+  before:content-[''] before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-white/20 before:skew-x-[-20deg] hover:before:left-[100%] before:transition-all before:duration-500">
+        Go To Home</a>
+  </div>
+</div>

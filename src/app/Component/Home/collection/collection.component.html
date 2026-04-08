@@ -1,0 +1,22 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5 lg:py-8">
+  <!-- Title section -->
+  <h2 class="capitalize text-xl/tight sm:text-2xl/tight md:text-3xl/tight lg:text-4xl/tight xl:text-5xl/tight font-normal text-center text-08503f">
+    New Collection</h2>
+  <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-[21px] text-9d9b9b text-center mt-0.5">
+    Find jewelry that perfectly matches your mood and personality.
+  </p>
+
+  <!-- collection slider -->
+  <div class="relative mt-6 lg:mt-8 xl:mt-10">
+    <swiper-container #swiperRef init="false">
+      <!-- Collection card -->
+      <swiper-slide *ngFor="let collection of collections" class="py-1">
+        <a routerLink="#">
+          <div>
+            <img [src]="collection.image" [alt]="collection.alt" class="w-full" />
+          </div>
+        </a>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+</div>

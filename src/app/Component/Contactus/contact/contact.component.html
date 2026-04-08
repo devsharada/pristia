@@ -1,0 +1,66 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5 lg:py-8">
+  <!-- Title section -->
+  <h2
+    class="capitalize text-xl/tight sm:text-2xl/tight md:text-3xl/tight lg:text-4xl/tight xl:text-5xl/tight font-semibold text-center text-08503f">
+    Contact Us</h2>
+
+
+  <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 md:gap-5 lg:gap-10 mt-6 lg:mt-8">
+    <!-- conatct form div -->
+    <div clss="w-full mb-6 sm:mb-0">
+      <p class="text-1e1e1e px-4 font-normal text-sm md:text-base xl:text-lg mb-6 xl:mb-8">Have a question about an
+        order, or
+        about
+        getting in touch? We're always happy to hear from you.</p>
+      <form class="w-full space-y-6 px-4">
+        <div class="relative">
+          <input type="text" [(ngModel)]="name" name="name"
+            class="block px-2.5 pb-2 pt-4 w-full text-sm md:text-[15px] text-1e1e1e placeholder:text-9d9b9b bg-white rounded-md border-1 border-eee appearance-none focus:outline-none focus:ring-0 focus:border-08503f peer"
+            placeholder=" " />
+          <label
+            class="absolute text-base text-9d9b9b duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Name</label>
+        </div>
+
+        <div class="relative">
+          <input type="email" [(ngModel)]="email" name="email"
+            class="block px-2.5 pb-2 pt-4 w-full text-sm md:text-[15px] text-1e1e1e placeholder:text-9d9b9b bg-white rounded-md border-1 border-eee appearance-none focus:outline-none focus:ring-0 focus:border-08503f peer"
+            placeholder=" " />
+          <label
+            class="absolute text-base text-9d9b9b duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Email
+            ID</label>
+        </div>
+
+        <div class="relative">
+          <input type="tel" [(ngModel)]="phone" name="phone"
+            class="block px-2.5 pb-2 pt-4 w-full text-sm md:text-[15px] text-1e1e1e placeholder:text-9d9b9b bg-white rounded-md border-1 border-eee appearance-none focus:outline-none focus:ring-0 focus:border-08503f peer"
+            placeholder=" " />
+          <label
+            class="absolute text-base text-9d9b9b duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Phone
+            No.</label>
+        </div>
+
+        <div class="relative">
+          <textarea [(ngModel)]="message" name="message" rows="4" placeholder=""
+            class="block px-2.5 pb-2 pt-4 w-full text-sm md:text-[15px] text-1e1e1e placeholder:text-9d9b9b bg-white rounded-md border-1 border-eee appearance-none focus:outline-none focus:ring-0 focus:border-08503f peer"></textarea>
+          <label
+            class="absolute text-base text-9d9b9b duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/4 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Message</label>
+        </div>
+
+        <button type="submit" (click)="submitForm()" class="relative overflow-hidden mt-6 cursor-pointer w-full border border-08503f bg-08503f text-white text-lg md:text-lg py-2 px-5 rounded-md
+  transition-all duration-300 hover:scale-[1.02]
+  before:content-[''] before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-white/20 before:skew-x-[-20deg]
+  hover:before:left-[100%] before:transition-all before:duration-500">
+          Submit
+        </button>
+
+      </form>
+    </div>
+    <!-- right side image div -->
+    <div class="w-full">
+      <img class="w-full px-4 h-auto" src="/assets/images/home/contact-us.png" alt="contact-us">
+    </div>
+  </div>
+</div>
+
+<!-- newsletter -->
+<app-newsletter></app-newsletter>

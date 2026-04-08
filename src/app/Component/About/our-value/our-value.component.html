@@ -1,0 +1,25 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5 lg:py-8">
+  <div class="md:flex items-center justify-start gap-2 sm:gap-2.5 md:gap-14">
+    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+      <img class="w-full sm:w-[95%] h-auto" src="/assets/images/about/trending-jewelry.png" alt="trending-jewelry">
+    </div>
+    <div class="w-full md:w-1/2">
+      <!-- Title section -->
+       <p class="uppercase text-08503f text-base md:text-lg lg:text-xl xl:text-2xl font-semibold mb-4 xl:mb-6">OUR VALUE</p>
+      <h2
+        class="capitalize text-xl/tight sm:text-2xl/tight md:text-3xl/tight lg:text-4xl/tight xl:text-[42px]/tight font-semibold text-08503f">
+        Elegance and craftsmanship in every jewel we create</h2>
+      <p
+        class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-9d9b9b mt-1 lg:mt-2 pb-3 border-b border-eee">
+        Each piece is designed with precision, passion, and timeless beauty to celebrate life’s most precious moments.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 md:gap-3 mt-4 xl:mt-8 space-y-3 xl:space-y-5">
+        <div *ngFor="let value of values" class="space-y-2 xl:space-y-4">
+          <img [src]="value.image" [alt]="value.image" class="size-6 md:size-7 xl:size-8">
+        <p class="text-1e1e1e font-semibold text-lg md:text-xl lg:text-2xl xl:text-3xl font-oldstandtt ">{{ value.title }}</p>
+        <p class="text-9d9b9b font-normal text-xs md:text-sm xl:text-base">{{ value.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

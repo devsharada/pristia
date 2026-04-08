@@ -1,0 +1,118 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5 lg:py-8">
+  <div class="md:flex items-center justify-start gap-2 sm:gap-2.5 md:gap-14">
+
+    <div class="w-full md:w-1/2">
+      <!-- Title section -->
+      <p class="uppercase text-08503f text-base md:text-lg lg:text-xl xl:text-2xl font-semibold mb-4 xl:mb-6">OUR BLOG
+      </p>
+      <h1
+        class="capitalize text-2xl/tight md:text-3xl/tight lg:text-4xl/tight xl:text-5xl/tight 2xl:text-[62px]/tight font-normal text-08503f">
+        Submit your article and join our network!</h1>
+      <p class="text-xs sm:text-sm md:text-sm lg:text-base xl:text-lg text-9d9b9b mt-3 lg:mt-8">
+        Don't waste time and join our community of authors! Share your knowledge
+        and experience with our readers and get the opportunity to become
+        a part of our professional and creative team!
+      </p>
+    </div>
+
+    <div class="w-full md:w-1/2 flex items-start justify-between gap-2 sm:gap-3 md:gap-4 mt-6 md:mt-0">
+      <img class="w-1/3 rounded-lg" src="/assets/images/blogs/blog5.png" alt="trending-jewelry">
+      <img class="w-1/3 rounded-lg mt-6 sm:mt-10 md:mt-12 xl:mt-14" src="/assets/images/blogs/blog6.png"
+        alt="trending-jewelry">
+      <img class="w-1/3 rounded-lg" src="/assets/images/blogs/blog7.png" alt="trending-jewelry">
+    </div>
+  </div>
+</div>
+
+<!-- featured blogs -->
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 sm:flex items-stretch gap-2 s:gap-2.5 md:gap-3 lg:gap-5 py-5 lg:py-8">
+  <!-- Left column with background image -->
+  <div
+    class="w-full sm:w-1/3 md:w-1/2 flex-1 min-h-full rounded-lg bg-[url(/assets/images/blogs/blog11.png)] bg-no-repeat bg-cover bg-center">
+    <a routerlink="blogs/blog-details" class="w-full min-h-full flex flex-col justify-end p-6">
+      <p
+        class="text-white font-normal text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl capitalize mb-2 font-oldstandtt">
+        Styling Secrets: How to Layer Jewelry Like a Pro
+      </p>
+      <p class="text-white font-normal text-xs/relaxed sm:text-sm/relaxed lg:text-base/relaxed my-2">
+        Layering jewelry is an art that instantly elevates any look, whether casual or glamorous...
+      </p>
+      <p class="text-white text-xs md:text-sm lg:text-[15px] font-normal inline-flex items-center gap-1.5">Apr 8, 2023
+      </p>
+    </a>
+  </div>
+
+  <!-- Right column with blog listings -->
+  <div class="w-full sm:w-2/3 md:w-1/2 space-y-4 sm:space-y-2 md:space-y-4 min-h-full mt-4 sm:mt-0">
+    <div *ngFor="let blog of blogs">
+      <a [routerLink]="blog.link" class="w-full flex items-center gap-2 md:gap-4">
+        <div class="w-2/5 sm:w-2/5 md:w-1/3">
+          <img class="rounded-lg" [src]="blog.imageUrl" [alt]="blog.title">
+        </div>
+        <div class="w-3/5 sm:w-3/5 md:w-2/3">
+          <p
+            class="text-9d9b9b text-xs md:text-sm xl:text-[15px] font-normal inline-flex items-center gap-1.5 line-clamp-2">
+            {{ blog.date }}</p>
+          <p
+            class="text-1e1e1e font-normal text-sm sm:text-base md:text-lg lg:text-2xl xl:text-2xl capitalize my-0.5 sm:my-2 font-oldstandtt line-clamp-2">
+            {{ blog.title }}
+          </p>
+          <p
+            class="text-9d9b9b font-normal text-xs/relaxed md:text-sm/relaxed xl:text-base/relaxed line-clamp-2 sm:line-clamp-3">
+            {{ blog.summary }}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- submitted articles -->
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5 lg:py-8" [@listAnimation]>
+  <h2 class="text-08503f font-normal text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] mb-6">
+    Submitted Articles
+  </h2>
+
+  <a *ngFor="let article of articles; let i = index"
+     [routerLink]="article.link"
+     class="block transform transition duration-700 ease-out hover:scale-[1.02]"
+     [ngClass]="{ 'my-6': i !== 0 }">
+
+    <div class="sm:flex items-center gap-2 s:gap-2.5 md:gap-3 lg:gap-5">
+
+      <!-- Image on Left (default) -->
+      <div *ngIf="!article.reverse" class="w-full sm:w-1/2">
+        <img class="rounded-lg" [src]="article.image" [alt]="article.title">
+      </div>
+
+      <!-- Text -->
+      <div class="w-full sm:w-1/2"
+           [ngClass]="{ 'mt-4 sm:mt-0': !article.reverse, 'mb-4 sm:mb-0': article.reverse }">
+        <div class="flex items-center justify-between gap-2 mb-3 md:mb-4">
+          <p class="text-08503f font-normal text-sm md:text-base xl:text-lg capitalize">
+            {{ article.category }}
+          </p>
+          <p class="text-9d9b9b text-xs md:text-sm xl:text-[15px] font-normal inline-flex items-center gap-1.5">
+            {{ article.date }}
+          </p>
+        </div>
+
+        <p
+          class="text-1e1e1e font-normal text-lg/snug sm:text-xl/snug md:text-2xl/snug lg:text-3xl/snug xl:text-4xl/snug capitalize mb-2 font-oldstandtt line-clamp-2">
+          {{ article.title }}
+        </p>
+
+        <p class="text-9d9b9b font-normal text-xs/normal md:text-sm/normal xl:text-base/normal mt-2 md:mt-4">
+          {{ article.description }}
+        </p>
+      </div>
+
+      <!-- Image on Right (when reverse=true) -->
+      <div *ngIf="article.reverse" class="w-full sm:w-1/2">
+        <img class="rounded-lg" [src]="article.image" [alt]="article.title">
+      </div>
+    </div>
+  </a>
+</div>
+
+<!-- newsletter -->
+<app-newsletter></app-newsletter>

@@ -1,0 +1,33 @@
+<div class="w-full p-4 lg:p-8 xl:p-10">
+  <!-- Logo -->
+  <a routerLink="/home">
+    <img class="w-36 md:w-42 lg:w-52" src="/assets/images/home/logo1.png" alt="brand logo">
+  </a>
+  <p class="text-08503f font-normal text-sm md:text-base xl:text-lg mt-6">Get exclusive jewelry—just for you.</p>
+  <p class="text-9d9b9b font-normal text-sm md:text-base lg:text-base mt-2">Welcome Back, Please login to your account
+  </p>
+
+  <div class="relative mt-6 mb-6">
+    <input type="text"
+      class="block px-2.5 pb-3 pt-4 w-full text-sm md:text-[15px] text-1e1e1e placeholder:text-9d9b9b bg-white rounded-md border-1 border-eee appearance-none focus:outline-none focus:ring-0 focus:border-08503f peer"
+      placeholder=" " />
+    <label
+      class="absolute text-sm md:text-base text-9d9b9b duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Mobile
+      No./Email ID</label>
+  </div>
+
+  <a (click)="onVerifyOtpClick()"
+  class="relative overflow-hidden cursor-pointer block py-1.5 px-3 bg-08503f text-white text-base lg:text-lg rounded-md text-center border border-08503f transition-all duration-300 hover:scale-[1.02]
+  before:content-[''] before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-white/20 before:skew-x-[-20deg] hover:before:left-[100%] before:transition-all before:duration-500">
+  Request OTP</a>
+
+  <p class="text-sm md:text-base text-center text-1e1e1e font-normal mt-6">Don’t have an account? <a (click)="onRegisterClick()"
+      class="cursor-pointer font-semibold text-08503f underline">Sign Up</a></p>
+
+  <p class="flex items-center justify-center my-2"><span class="bg-eee w-30 h-[1px] block"></span><span
+      class="mx-2 text-08503f text-lg font-normal">or</span><span class="bg-eee w-30 h-[1px] block"></span></p>
+
+  <a routerLink="#"
+    class="cursor-pointer flex items-center justify-center gap-2 border border-eee text-9d9b9b text-sm md:text-base rounded-lg w-max p-2 mx-auto"><img
+      class="size-6" src="/assets/images/unauth/google.png" alt="google">Sign In with Google</a>
+</div>

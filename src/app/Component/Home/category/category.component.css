@@ -1,0 +1,22 @@
+.bg-category{
+   background-image: url('/assets/images/home/ring-bg.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.perspective {
+  perspective: 1000px;
+}
+.flip-animation {
+  transform-style: preserve-3d;
+  animation: flipY 3s linear infinite;
+}
+
+@keyframes flipY {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}

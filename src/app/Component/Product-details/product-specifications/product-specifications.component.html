@@ -1,0 +1,56 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5">
+  <!-- Tabs -->
+  <div class="flex items-end justify-center gap-2 sm:gap-3 md:gap-4 border-b border-9d9b9b">
+    <button
+      class="w-max cursor-pointer px-2 sm:px-5 py-2 font-medium text-center transition-colors text-sm sm:text-base md:text-lg lg:text-xl xl:text-[22px]"
+      [ngClass]="activeTab === 1 ? 'border-b-3 border-1e1e1e text-1e1e1e' : 'text-9d9b9b'"
+      (click)="activeTab = 1">Description</button>
+    <button
+      class="w-max cursor-pointer px-2 sm:px-5 py-2 font-medium text-center transition-colors text-sm sm:text-base md:text-lg lg:text-xl xl:text-[22px]"
+      [ngClass]="activeTab === 2 ? 'border-b-3 border-1e1e1e text-1e1e1e' : 'text-9d9b9b'" (click)="activeTab = 2">
+      Additional Information
+    </button>
+    <button
+      class="w-max cursor-pointer px-2 sm:px-5 py-2 font-medium text-center transition-colors text-sm sm:text-base md:text-lg lg:text-xl xl:text-[22px]"
+      [ngClass]="activeTab === 3 ? 'border-b-3 border-1e1e1e text-1e1e1e' : 'text-9d9b9b'" (click)="activeTab = 3">
+      Reviews
+    </button>
+  </div>
+
+  <!-- Tab content -->
+  <div class="w-full mt-6 lg:mt-8 xl:mt-10">
+    <div *ngIf="activeTab === 1">
+      <div
+        class=" text-9d9b9b font-normal text-sm/relaxed md:text-base/relaxed lg:text-lg/relaxed xl:text-xl/relaxed space-y-3">
+        <p>Discover the essence of everlasting elegance with our Gold-Plated Designer Ring, thoughtfully handcrafted
+          for women who adore sophistication in every detail. Blending traditional artistry with a modern edge, this
+          ring is more than an accessory — it’s a timeless reflection of beauty and confidence.</p>
+        <p>Each curve and contour is meticulously designed, finished with a radiant gold polish that enhances its
+          luxurious appeal. Lightweight, skin-friendly, and exquisitely detailed, it pairs effortlessly with both
+          traditional attire and contemporary styles.</p>
+        <p>Whether it’s a wedding, festive celebration, or a cherished gift, this ring embodies grace and refinement — a
+          treasure meant to be admired for years to come.</p>
+      </div>
+    </div>
+    <div *ngIf="activeTab === 2">
+      <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
+        <tbody>
+          <tr *ngFor="let item of specifications" class="border-b border-eee last:border-0">
+            <td class="p-1 sm:p-2 lg:px-3 lg:py-2 text-[13px] sm:text-sm lg:text-base bg-gray-50 font-medium text-08503f w-1/3">
+              {{ item.label }}
+            </td>
+            <td class="p-1 sm:p-2 lg:px-3 lg:py-2 text-[13px] sm:text-sm lg:text-base text-gray-700">
+              {{ item.value }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div *ngIf="activeTab === 3">
+      <div class="">
+        <app-product-review></app-product-review>
+      </div>
+    </div>
+  </div>
+</div>

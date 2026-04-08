@@ -1,0 +1,119 @@
+<div class="bg-white shadow rounded-md p-3 lg:p-8">
+  <h3 class="text-lg sm:text-xl md:text-xl lg:text-2xl font-medium mb-4 text-08503f">My Profile</h3>
+
+  <form action="">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-2.5 md:gap-3 space-y-3">
+      <!-- full name -->
+      <div class="col-span-1">
+        <div class="relative">
+          <input type="text"
+            class="block px-2.5 pb-2 pt-3 w-full text-sm md:text-[15px] text-1e1e1e placeholder:text-9d9b9b bg-white rounded-md border-1 border-eee appearance-none focus:outline-none focus:ring-0 focus:border-08503f peer"
+            placeholder=" " />
+          <label
+            class="absolute text-sm md:text-base text-9d9b9b duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Full
+            Name</label>
+        </div>
+      </div>
+      <!-- Email Id -->
+      <div class="col-span-1">
+        <div class="relative">
+          <input type="text"
+            class="block px-2.5 pb-2 pt-3 w-full text-sm md:text-[15px] text-1e1e1e placeholder:text-9d9b9b bg-white rounded-md border-1 border-eee appearance-none focus:outline-none focus:ring-0 focus:border-08503f peer"
+            placeholder=" " />
+          <label
+            class="absolute text-sm md:text-base text-9d9b9b duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Email
+            ID</label>
+        </div>
+      </div>
+      <!-- Mobile No. -->
+      <div class="col-span-1">
+        <div class="relative">
+          <input type="text"
+            class="block px-2.5 pb-2 pt-3 w-full text-sm md:text-[15px] text-1e1e1e placeholder:text-9d9b9b bg-white rounded-md border-1 border-eee appearance-none focus:outline-none focus:ring-0 focus:border-08503f peer"
+            placeholder=" " />
+          <label
+            class="absolute text-sm md:text-base text-9d9b9b duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Mobile
+            No.</label>
+        </div>
+      </div>
+      <!-- Gender -->
+      <div class="col-span-1 md:col-span-1">
+        <div class="flex items-center gap-6 px-2 py-2.5 w-full text-444 rounded-md border-1 border-eee">
+          <label class="inline-flex items-center">
+            <input type="radio" name="gender" value="male" [(ngModel)]="gender"
+              class="form-radio text-1e1e1e focus:ring-08503f">
+            <span class="ml-2 text-sm lg:text-[15px] text-1e1e1e">Male</span>
+          </label>
+
+          <label class="inline-flex items-center">
+            <input type="radio" name="gender" value="female" [(ngModel)]="gender"
+              class="form-radio text-1e1e1e focus:ring-08503f">
+            <span class="ml-2 text-sm lg:text-[15px] text-1e1e1e">Female</span>
+          </label>
+        </div>
+      </div>
+      <!-- Alt. phone no. -->
+      <div class="col-span-1">
+        <div class="relative">
+          <input type="text"
+            class="block px-2.5 pb-2 pt-3 w-full text-sm md:text-[15px] text-1e1e1e placeholder:text-9d9b9b bg-white rounded-md border-1 border-eee appearance-none focus:outline-none focus:ring-0 focus:border-08503f peer"
+            placeholder=" " />
+          <label
+            class="absolute text-sm md:text-base text-9d9b9b duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Alt.
+            Phone No.</label>
+        </div>
+      </div>
+
+      <!-- DOB -->
+      <div class="col-span-1">
+        <div class="relative">
+          <input type="text"
+            class="block px-2.5 pb-2 pt-3 w-full text-sm md:text-[15px] text-1e1e1e placeholder:text-9d9b9b bg-white rounded-md border-1 border-eee appearance-none focus:outline-none focus:ring-0 focus:border-08503f peer"
+            placeholder=" " />
+          <label
+            class="absolute text-sm md:text-base text-9d9b9b duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Date
+            Of Birth</label>
+        </div>
+      </div>
+
+      <!-- Zodiac Sign -->
+      <div class="col-span-1">
+        <div class="relative">
+          <select id="zodiacSign"
+            class="block px-2.5 pb-2 pt-3 w-full text-sm md:text-[15px] text-1e1e1e  placeholder:text-9d9b9b font-normal bg-white rounded-md border-1 border-eee  focus:outline-none focus:ring-0 focus:border-08503f peer">
+            <option value="" disabled selected hidden>Seclect Zodiac Sign</option>
+            <option value="aries">Aries</option>
+            <option value="taurus">Taurus</option>
+            <option value="gemini">Gemini</option>
+            <option value="cancer">Cancer</option>
+            <option value="leo">Leo</option>
+            <option value="virgo">Virgo</option>
+            <option value="libra">Libra</option>
+            <option value="scorpio">Scorpio</option>
+            <option value="sagittarius">Sagittarius</option>
+            <option value="capricorn">Capricorn</option>
+            <option value="aquarius">Aquarius</option>
+            <option value="pisces">Pisces</option>
+          </select>
+          <label for="zodiacSign"
+            class="capitalize absolute text-base text-9d9b9b duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
+            Zodiac Sign
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- clear & update button -->
+    <div class="flex items-center justify-end gap-2 mt-4">
+      <button
+        class="relative cursor-pointer capitalize overflow-hidden mt-3 xl:mt-4 w-max px-3 py-2 xl:py-2 my-3 bg-white text-08503f text-lg lg:text-[19px] rounded-md transition-all border border-08503f ">
+        Clear
+      </button>
+      <button
+        class="relative cursor-pointer capitalize overflow-hidden mt-3 xl:mt-4 w-max px-3 py-2 xl:py-2 my-3 bg-08503f text-white text-lg lg:text-[19px] rounded-md transition-all duration-300 hover:scale-[1.02]
+  before:content-[''] before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-white/20 before:skew-x-[-20deg] hover:before:left-[100%] before:transition-all before:duration-500">
+        Update
+      </button>
+    </div>
+  </form>
+</div>

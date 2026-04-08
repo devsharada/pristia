@@ -1,0 +1,111 @@
+<div class="sm:flex items-start justify-start gap-2 sm:gap-2.5 md:gap-3">
+  <!-- Filter Button -->
+  <button (click)="showFilters = !showFilters"
+    class="cursor-pointer flex items-center justify-center gap-2 px-4 py-1.5 rounded-lg border border-08503f text-08503f text-[15px]/tight md:text-[17px]/tight font-semibold bg-white hover:shadow-md">
+    Filters<svg class="size-3.5 md:size-4 lg:size-5" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M25 12.3994H8.97189M3.31438 12.3994H1M3.31438 12.3994C3.31438 11.6493 3.61234 10.93 4.14271 10.3996C4.67309 9.8692 5.39243 9.57124 6.14249 9.57124C6.89255 9.57124 7.61189 9.8692 8.14226 10.3996C8.67263 10.93 8.97059 11.6493 8.97059 12.3994C8.97059 13.1494 8.67263 13.8688 8.14226 14.3991C7.61189 14.9295 6.89255 15.2275 6.14249 15.2275C5.39243 15.2275 4.67309 14.9295 4.14271 14.3991C3.61234 13.8688 3.31438 13.1494 3.31438 12.3994ZM25 20.9706H17.5431M17.5431 20.9706C17.5431 21.7208 17.2445 22.441 16.714 22.9715C16.1835 23.502 15.464 23.8 14.7137 23.8C13.9637 23.8 13.2443 23.5007 12.714 22.9704C12.1836 22.44 11.8856 21.7207 11.8856 20.9706M17.5431 20.9706C17.5431 20.2204 17.2445 19.5015 16.714 18.971C16.1835 18.4405 15.464 18.1425 14.7137 18.1425C13.9637 18.1425 13.2443 18.4404 12.714 18.9708C12.1836 19.5012 11.8856 20.2205 11.8856 20.9706M11.8856 20.9706H1M25 3.82811H20.9719M15.3144 3.82811H1M15.3144 3.82811C15.3144 3.07805 15.6123 2.35871 16.1427 1.82833C16.6731 1.29796 17.3924 1 18.1425 1C18.5139 1 18.8816 1.07315 19.2248 1.21528C19.5679 1.3574 19.8796 1.56572 20.1423 1.82833C20.4049 2.09095 20.6132 2.40272 20.7553 2.74584C20.8974 3.08896 20.9706 3.45672 20.9706 3.82811C20.9706 4.1995 20.8974 4.56726 20.7553 4.91038C20.6132 5.2535 20.4049 5.56527 20.1423 5.82788C19.8796 6.0905 19.5679 6.29881 19.2248 6.44094C18.8816 6.58307 18.5139 6.65622 18.1425 6.65622C17.3924 6.65622 16.6731 6.35826 16.1427 5.82788C15.6123 5.29751 15.3144 4.57817 15.3144 3.82811Z"
+        stroke="#08503F" stroke-width="1.94595" stroke-miterlimit="10" stroke-linecap="round" />
+    </svg>
+  </button>
+  <!-- selected filter chips will show here -->
+  <div *ngIf="selectedChips.length" class="flex flex-wrap items-center gap-2 mt-4 sm:mt-0">
+    <div *ngFor="let chip of selectedChips"
+      class="flex items-center gap-1 bg-9d9b9b33 text-1e1e1e text-xs md:text-sm px-2 py-1 rounded-full">
+      {{ chip.label }}
+      <button class="ml-1 text-1e1e1e cursor-pointer" (click)="removeChip(chip)">✕</button>
+    </div>
+    <button class="text-08503f text-xs md:text-sm underline cursor-pointer" (click)="clearAllChips()">Clear All</button>
+  </div>
+</div>
+
+<!-- Products and Filters Layout -->
+<div class="mt-4 grid gap-x-2 sm:gap-x-2.5 md:gap-x-3 transition-all duration-300"
+  [ngClass]="{ 'lg:grid-cols-[250px_1fr]': showFilters, 'grid-cols-1': !showFilters }">
+
+  <!-- Filter Panel -->
+  <app-filter [showFilters]="showFilters" [filters]="filters" (applyFilters)="onFilterApply($event)"
+    (closePanel)="showFilters=false" (filterChanged)="onFilterChanged($event)">
+  </app-filter>
+
+  <!-- Products Grid -->
+  <div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-2 sm:gap-2.5 md:gap-3">
+      <ng-container *ngFor="let item of filteredProducts; let i = index">
+        <!-- After 12 products, show a full-width image -->
+        <ng-container *ngIf="i === 10">
+          <div class="col-span-2 ">
+            <img src="/assets/images/product/jewelry-offer.png" alt="Banner" class="w-full h-auto rounded-lg" />
+          </div>
+        </ng-container>
+
+        <!-- Product Card -->
+        <div
+          class="relative group border border-eee rounded-lg overflow-hidden transition-shadow duration-300 p-1.5 md:p-3">
+          <!-- wishlist icon -->
+          <button class="cursor-pointer absolute top-2 right-2 z-10 group">
+            <p
+              class="size-7 sm:size-8 flex items-center justify-center bg-white group-hover:shadow-md rounded-full transition duration-200">
+              <svg class="size-5 sm:size-6 stroke-c09d0d group-hover:stroke-08503f transition duration-200"
+                viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M53.7499 21.3455C53.7499 14.2781 48.0205 8.54883 40.9531 8.54883C36.3003 8.54883 32.2396 11.0403 29.9999 14.7538C27.76 11.0403 23.6995 8.54883 19.0466 8.54883C11.9792 8.54883 6.25 14.2781 6.25 21.3455C6.25 22.9611 6.562 24.5005 7.10825 25.9238C11.3396 38.0948 30 51.4507 30 51.4507C30 51.4507 48.6603 38.0948 52.8918 25.9238C53.438 24.5006 53.7499 22.9611 53.7499 21.3455Z"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </p>
+          </button>
+
+          <!-- Product link -->
+          <a [routerLink]="item.link" class="block">
+            <div class="relative overflow-hidden aspect-square group">
+              <img [src]="item.image1"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:-translate-y-full group-hover:scale-105" />
+              <img [src]="item.image2"
+                class="absolute inset-0 w-full h-full object-cover -translate-y-full transition-transform duration-500 group-hover:translate-y-0 group-hover:scale-105" />
+            </div>
+            <div class="bg-transparent my-1 space-y-1 md:space-y-2 xl:space-y-3">
+              <p class="capitalize text-xs md:text-sm lg:text-base xl:text-lg font-normal truncate text-9d9b9b">
+                {{ item.name }}
+              </p>
+              <p class="space-x-2">
+                <span class="font-semibold text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl text-323232">
+                  {{ item.price }}
+                </span>
+              </p>
+            </div>
+          </a>
+
+          <!-- add to cart -->
+          <a routerLink="#"
+            class="relative overflow-hidden capitalize mt-2 lg:mt-4 block w-full text-center rounded-full bg-08503f text-white text-sm md:text-base 2xl:text-lg px-3 py-1 md:py-1.5 transition-all duration-300 group-hover:scale-[1.02] before:content-[''] before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-white/20 before:skew-x-[-20deg] group-hover:before:left-[100%] before:transition-all before:duration-500">
+            Add To Cart
+          </a>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- Mobile Filter Offcanvas -->
+    <div class="fixed inset-0 z-50 lg:hidden" *ngIf="showFilters">
+      <!-- Backdrop -->
+      <div class="absolute inset-0 bg-black/40 bg-opacity-40" (click)="closeFilters()"></div>
+
+      <!-- Drawer Panel -->
+      <div class="absolute left-0 top-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300"
+        [ngClass]="{ '-translate-x-full': !showFilters, 'translate-x-0': showFilters }">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between p-4 border-b border-eee">
+          <h3 class="text-lg font-semibold text-08503f">Filters</h3>
+          <button (click)="closeFilters()" class="text-1e1e1e text-xl">✖</button>
+        </div>
+
+        <!-- Filter Content -->
+        <div class="p-4 space-y-3 overflow-y-auto h-[calc(100%-60px)]">
+          <!-- Filter Panel -->
+          <app-filter [showFilters]="showFilters" [filters]="filters" (applyFilters)="onFilterApply($event)"
+            (closePanel)="showFilters=false" (filterChanged)="onFilterChanged($event)">
+          </app-filter>
+        </div>
+      </div>
+    </div>
+  </div>

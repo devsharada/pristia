@@ -1,0 +1,30 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5 lg:py-8">
+  <!-- Title section -->
+  <h2 class="capitalize text-xl/tight sm:text-2xl/tight md:text-3xl/tight lg:text-4xl/tight xl:text-5xl/tight font-normal text-center text-08503f">
+    Popular Categories
+  </h2>
+  <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-[21px] text-9d9b9b text-center mt-0.5">
+    Explore our most-loved jewelry pieces designed for every occasion.
+  </p>
+
+  <!-- Categories Grid -->
+  <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-2.5 md:gap-3 mt-4 md:mt-6 lg:mt-8">
+
+  <div *ngFor="let item of categories">
+    <a [routerLink]="item.link" class="bg-category cursor-pointer flex items-center justify-center ">
+      <img
+        class="w-full mx-auto "
+        [src]="item.image"
+        [alt]="item.name"
+      >
+    </a>
+
+    <p class="capitalize text-sm md:text-base lg:text-lg xl:text-[22px] font-normal text-08503f mt-2 text-center">
+      {{ item.name }}
+    </p>
+  </div>
+
+</div>
+
+</div>
+

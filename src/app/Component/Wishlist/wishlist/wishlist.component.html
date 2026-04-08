@@ -1,0 +1,91 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5 lg:py-8">
+
+  <ng-container *ngIf="products1.length > 0; else emptyWishlist">
+    <!-- Title section -->
+    <h2
+      class="capitalize text-xl/tight sm:text-2xl/tight md:text-3xl/tight lg:text-4xl/tight xl:text-5xl/tight font-normal text-center text-08503f">
+      Wishlist
+    </h2>
+
+    <div class="w-full mt-6 lg:mt-8 xl:mt-10">
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-2 sm:gap-2.5 md:gap-3">
+        <!-- product card -->
+        <div *ngFor="let item of products1" @fadeAnimation>
+          <div
+            class="relative group border border-eee rounded-lg overflow-hidden transition-shadow duration-300 p-1.5 md:p-3">
+
+            <!-- delete or remove product icon -->
+            <button (click)="removeItem(item.id)" class="cursor-pointer absolute top-2 right-2 z-10 group">
+              <p
+                class="size-7 sm:size-8 flex items-center justify-center bg-white group-hover:shadow-md rounded-full transition duration-200">
+                <svg class="size-6 sm:size-7 stroke-c09d0d group-hover:stroke-08503f transition duration-200"
+                  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M4.99997 8H6.5M6.5 8V18C6.5 19.1046 7.39543 20 8.5 20H15.5C16.6046 20 17.5 19.1046 17.5 18V8M6.5 8H17.5M17.5 8H19M9 5H15M9.99997 11.5V16.5M14 11.5V16.5"
+                      stroke-linecap="round" stroke-linejoin="round"></path>
+                  </g>
+                </svg>
+              </p>
+            </button>
+
+            <!-- product link -->
+            <a [routerLink]="item.link" class="block">
+
+              <div class="relative overflow-hidden aspect-square group">
+                <!-- First image -->
+                <img [src]="item.image1"
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:-translate-y-full group-hover:scale-105" />
+
+                <!-- Second image -->
+                <img [src]="item.image2"
+                  class="absolute inset-0 w-full h-full object-cover -translate-y-full transition-transform duration-500 group-hover:translate-y-0 group-hover:scale-105" />
+              </div>
+
+              <div class="bg-transparent my-1 space-y-1 md:space-y-2 xl:space-y-3">
+                <!-- product name -->
+                <p class="capitalize text-xs md:text-sm lg:text-base xl:text-lg font-normal truncate text-9d9b9b">{{
+                  item.name
+                  }}
+                </p>
+                <!-- product  price -->
+                <p class="space-x-2">
+                  <span class="font-semibold text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl text-323232">{{
+                    item.price }}</span>
+                </p>
+
+              </div>
+            </a>
+            <!-- add to cart -->
+            <a routerLink="#"
+              class="relative overflow-hidden capitalize mt-2 lg:mt-4 block w-full text-center rounded-full bg-08503f text-white text-sm md:text-base 2xl:text-lg px-3 py-1 md:py-1.5 transition-all duration-300 group-hover:scale-[1.02] before:content-[''] before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-white/20 before:skew-x-[-20deg] group-hover:before:left-[100%] before:transition-all before:duration-500">
+              Add To Cart
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Empty Wishlist -->
+  <ng-template #emptyWishlist>
+    <div class="bg-faf7f0 rounded-lg flex flex-col items-center justify-center h-full px-2 sm:px-4 py-10 text-center">
+      <img src="assets/images/home/empty-wishlist.png" alt="Empty wishlist"
+        class="size-30 md:size-40 object-contain mb-8" />
+      <h2 class="text-xl lg:text-3xl text-1e1e1e font-normal mb-1">Your wishlist is empty</h2>
+      <p class="text-sm lg:text-base text-9d9b9b mb-8">Looks like you haven’t added anything yet.</p>
+
+      <a routerLink="/home"
+        class="relative overflow-hidden cursor-pointer block w-max py-2 xl:py-3 px-5 my-3 xl:mt-6 bg-08503f text-white text-base lg:text-lg rounded-md text-center border border-08503f transition-all duration-300 hover:scale-[1.02]
+  before:content-[''] before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-white/20 before:skew-x-[-20deg] hover:before:left-[100%] before:transition-all before:duration-500">
+        Continue Shopping</a>
+    </div>
+  </ng-template>
+
+</div>
+
+<!-- newsletter -->
+<app-newsletter></app-newsletter>

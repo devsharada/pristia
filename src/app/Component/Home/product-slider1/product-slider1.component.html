@@ -1,0 +1,91 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5 lg:py-8">
+  <!-- Title section -->
+  <h2
+    class="capitalize text-xl/tight sm:text-2xl/tight md:text-3xl/tight lg:text-4xl/tight xl:text-5xl/tight font-normal text-center text-08503f">
+    Recommended Product</h2>
+  <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-[21px] text-9d9b9b text-center mt-0.5">
+    Hand-picked pieces curated just for your unique style.
+  </p>
+
+  <!-- product slider -->
+  <div class="relative mt-6 lg:mt-8 xl:mt-10">
+    <!-- Navigation Buttons -->
+    <div class="absolute left-0 lg:-left-4 xl:-left-10 top-1/2 -translate-y-1/2 z-10">
+      <button
+        class="cursor-pointer swiper-button-next1 size-7 sm:size-9 flex items-center justify-center text-xl sm:text-2xl bg-white text-08503f hover:shadow-md hover:bg-white border border-gray-300 rounded-full p-1">
+        <svg class="w-[6px] lg:w-[10px]" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M11.2258 23.6955L0.354838 13.3602C0.225806 13.2372 0.134623 13.1039 0.08129 12.9604C0.0270964 12.8168 0 12.663 0 12.499C0 12.3349 0.0270964 12.1811 0.08129 12.0376C0.134623 11.894 0.225806 11.7607 0.354838 11.6377L11.2258 1.2717C11.5269 0.984609 11.9032 0.841064 12.3548 0.841064C12.8065 0.841064 13.1935 0.994863 13.5161 1.30246C13.8387 1.61006 14 1.96892 14 2.37905C14 2.78917 13.8387 3.14804 13.5161 3.45563L4.03226 12.499L13.5161 21.5423C13.8172 21.8294 13.9677 22.1829 13.9677 22.6029C13.9677 23.0237 13.8065 23.3879 13.4839 23.6955C13.1613 24.0031 12.7849 24.1569 12.3548 24.1569C11.9247 24.1569 11.5484 24.0031 11.2258 23.6955Z"
+            fill="#08503f" />
+        </svg>
+      </button>
+    </div>
+    <div class="absolute right-0 lg:-right-4 xl:-right-10 top-1/2 -translate-y-1/2 z-10">
+      <button
+        class="cursor-pointer swiper-button-prev1 size-7 sm:size-9 flex items-center justify-center text-xl sm:text-2xl bg-white text-08503f hover:shadow-md hover:bg-white border border-gray-300 rounded-full p-1">
+        <svg class="w-[6px] lg:w-[10px]" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M2.77419 1.30355L13.6452 11.6388C13.7742 11.7618 13.8654 11.8951 13.9187 12.0387C13.9729 12.1822 14 12.336 14 12.5001C14 12.6641 13.9729 12.8179 13.9187 12.9615C13.8654 13.105 13.7742 13.2383 13.6452 13.3613L2.77419 23.7273C2.47312 24.0144 2.09677 24.158 1.64516 24.158C1.19355 24.158 0.806452 24.0042 0.483871 23.6966C0.16129 23.389 0 23.0301 0 22.62C0 22.2098 0.16129 21.851 0.483871 21.5434L9.96774 12.5001L0.483871 3.45673C0.182796 3.16964 0.0322571 2.8161 0.0322571 2.39613C0.0322571 1.97534 0.193548 1.61115 0.516129 1.30355C0.838709 0.995955 1.21505 0.842157 1.64516 0.842157C2.07527 0.842157 2.45161 0.995955 2.77419 1.30355Z"
+            fill="#08503f" />
+        </svg>
+      </button>
+    </div>
+
+    <swiper-container #swiperRef init="false">
+      <!-- product card -->
+      <swiper-slide *ngFor="let item of products1" class="py-1">
+        <div
+          class="relative group border border-eee rounded-lg overflow-hidden transition-shadow duration-300 p-1.5 md:p-3">
+
+          <!-- wishlist icon -->
+          <button class="cursor-pointer absolute top-2 right-2 z-10 group">
+            <p
+              class="size-7 sm:size-8 flex items-center justify-center bg-white group-hover:shadow-md rounded-full transition duration-200">
+              <svg class="size-5 sm:size-6 stroke-c09d0d group-hover:stroke-08503f transition duration-200"
+                viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M53.7499 21.3455C53.7499 14.2781 48.0205 8.54883 40.9531 8.54883C36.3003 8.54883 32.2396 11.0403 29.9999 14.7538C27.76 11.0403 23.6995 8.54883 19.0466 8.54883C11.9792 8.54883 6.25 14.2781 6.25 21.3455C6.25 22.9611 6.562 24.5005 7.10825 25.9238C11.3396 38.0948 30 51.4507 30 51.4507C30 51.4507 48.6603 38.0948 52.8918 25.9238C53.438 24.5006 53.7499 22.9611 53.7499 21.3455Z"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </p>
+          </button>
+
+          <!-- product link -->
+          <a [routerLink]="item.link" class="block">
+
+            <div class="relative overflow-hidden aspect-square group">
+              <!-- First image -->
+              <img [src]="item.image1"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:-translate-y-full group-hover:scale-105" />
+
+              <!-- Second image -->
+              <img [src]="item.image2"
+                class="absolute inset-0 w-full h-full object-cover -translate-y-full transition-transform duration-500 group-hover:translate-y-0 group-hover:scale-105" />
+            </div>
+
+            <div class="bg-transparent my-1 space-y-1 md:space-y-2 xl:space-y-3">
+              <!-- product name -->
+              <p class="capitalize text-xs md:text-sm lg:text-base xl:text-lg font-normal truncate text-9d9b9b">{{
+                item.name
+                }}
+              </p>
+              <!-- product  price -->
+              <p class="space-x-2">
+                <span class="font-semibold text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl text-323232">{{
+                  item.price }}</span>
+              </p>
+
+            </div>
+          </a>
+          <!-- add to cart -->
+          <a routerLink="#"
+            class="relative overflow-hidden capitalize mt-2 lg:mt-4 block w-full text-center rounded-full bg-08503f text-white text-sm md:text-base 2xl:text-lg px-3 py-1 md:py-1.5 transition-all duration-300 group-hover:scale-[1.02] before:content-[''] before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-white/20 before:skew-x-[-20deg] group-hover:before:left-[100%] before:transition-all before:duration-500">
+            Add To Cart
+          </a>
+        </div>
+      </swiper-slide>
+
+    </swiper-container>
+
+  </div>
+</div>

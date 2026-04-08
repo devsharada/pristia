@@ -1,0 +1,261 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5 lg:py-8 grid grid-cols-1 md:grid-cols-2 md:gap-4 ">
+
+  <!-- Left: Product Images -->
+  <div class="w-full sm:w-3/4 lg:w-4/5 lg:px-4 mx-auto">
+    <!-- product image div -->
+    <div class="relative">
+      <!-- wishlist & share icon -->
+      <div class="absolute top-3 right-3 flex items-center justify-end gap-2">
+        <!-- wishlist icon -->
+        <button class="cursor-pointer">
+          <p class="hover:scale-105 transition duration-200">
+            <svg class="size-5 lg:size-7" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M53.7499 21.3455C53.7499 14.2781 48.0205 8.54883 40.9531 8.54883C36.3003 8.54883 32.2396 11.0403 29.9999 14.7538C27.76 11.0403 23.6995 8.54883 19.0466 8.54883C11.9792 8.54883 6.25 14.2781 6.25 21.3455C6.25 22.9611 6.562 24.5005 7.10825 25.9238C11.3396 38.0948 30 51.4507 30 51.4507C30 51.4507 48.6603 38.0948 52.8918 25.9238C53.438 24.5006 53.7499 22.9611 53.7499 21.3455Z"
+                stroke="#1e1e1e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </p>
+        </button>
+        <!-- share icon -->
+        <button class="cursor-pointer">
+          <p class=" hover:scale-105 transition duration-200">
+            <svg class="size-5 lg:size-7" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M26.9363 16.5L20.625 10.1887V13.5712L19.4425 13.75C13.5163 14.5887 9.50125 17.6962 7.205 22.4537C10.395 20.1987 14.355 19.1125 19.25 19.1125H20.625V22.8112M17.875 20.515C11.7288 20.8037 7.32875 23.0175 4.125 27.5C5.5 20.625 9.625 13.75 19.25 12.375V6.875L28.875 16.5L19.25 26.125V20.4875C18.7963 20.4875 18.3425 20.5012 17.875 20.515Z"
+                fill="#1e1e1e" />
+            </svg>
+          </p>
+        </button>
+      </div>
+      <!-- Main Image -->
+      <div *ngIf="selectedImage" class="rounded-md overflow-hidden border border-eee cursor-zoom-in"
+        (click)="openZoom(thumbnails.indexOf(selectedImage))">
+        <img [src]="selectedImage" alt="Selected Design" class="w-full object-cover rounded-lg">
+      </div>
+
+      <!-- Thumbnail Loop -->
+      <div class="relative mt-2 flex items-center">
+        <!-- Prev -->
+        <button (click)="prevThumb()"
+          class="flex items-center justify-center absolute size-5 xl:size-7 left-0 bg-gray-200 shadow rounded-full z-10">
+          &#10094;
+        </button>
+
+        <div class="flex gap-2 mx-auto">
+          <img *ngFor="let img of visibleThumbnails" (click)="selectImage(img)" [src]="img"
+            class="size-12 sm:size-20 md:size-11 lg:size-14 xl:size-18 2xl:size-20 object-cover border rounded-md cursor-pointer flex-shrink-0"
+            [ngClass]="selectedImage === img ? 'border-08503f' : 'border-eee'">
+        </div>
+
+        <!-- Next -->
+        <button (click)="nextThumb()"
+          class="flex items-center justify-center absolute size-5 xl:size-7 right-0 bg-gray-200 shadow rounded-full z-10">
+          &#10095;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Product Info -->
+  <div class="space-y-2 mt-4 md:mt-0">
+    <!-- product name & Price -->
+    <div>
+      <div class="sm:flex items-center justify-between gap-2 sm:gap-2.5 md:gap-3">
+        <h1 class="text-xl md:text-2xl xl:text-3xl font-oldstandtt text-1e1e1e font-normal capitalize">Promise Sterling
+          Silver Ring</h1>
+        <p
+          class="mt-1 sm:mt-0 w-max border border-08503f rounded-md px-2 py-0.5 bg-eee text-08503f text-xs sm:text-sm lg:text-[15px]">
+          In
+          Stock</p>
+      </div>
+      <!-- price -->
+      <div class="flex items-center gap-4 lg:gap-5 mt-3 mb-0.5">
+        <p class="text-xl md:text-2xl lg:text-3xl xl:text-[40px] font-medium text-08503f">₹ 2,999.00/<span
+            class="text-9d9b9b font-normal text-base md:text-lg lg:text-xl xl:text-2xl line-through">₹ 2,999.00</span>
+        </p>
+      </div>
+      <p class="text-[10px] md:text-xs lg:text-sm font-normal text-9d9b9b">MRP Incl. of all taxes</p>
+    </div>
+
+    <!-- select size & size guide -->
+    <div class="mt-4 md:mt-8 mb-4 border-b border-9d9b9b">
+      <div class="flex items-center justify-between gap-2 sm:gap-2.5 md:gap-3">
+        <p class="text-1e1e1e font-normal  text-sm md:text-base lg:text-lg xl:text-xl">Select Size <span
+            class="text-08503f">(mm)</span></p>
+        <a routerLink="/size-guide"
+          class="capitalize underline text-08503f font-normal text-sm md:text-base lg:text-lg xl:text-xl">Size Guide</a>
+      </div>
+      <!-- sizes -->
+      <div class="flex items-center flex-wrap gap-2 my-4">
+        <div *ngFor="let s of sizes" (click)="selectSize(s)" [ngClass]="selectedSize === s
+        ? 'bg-08503f text-white border-08503f80'
+        : 'border-08503f80 text-1e1e1e'"
+          class="rounded-full flex items-center justify-center size-8 md:size-10 lg:size-12 text-xs sm:text-base lg:text-lg font-medium cursor-pointer border transition-all duration-200">
+          {{ s }}
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2 sm:gap-3 lg:gap-5">
+      <!-- quantity -->
+      <div class="flex items-center border border-9d9b9b rounded-md">
+        <!-- Minus -->
+        <button (click)="decreaseQty()"
+          class="w-7 h-7 lg:w-9 lg:h-9 flex items-center justify-center text-1e1e1e text-base md:text-lg lg:text-xl xl:text-2xl font-normal disabled:opacity-40"
+          [disabled]="quantity <= 1">
+          –
+        </button>
+
+        <!-- Display Quantity -->
+        <div
+          class="w-9 h-7 lg:w-11 lg:h-9 flex items-center justify-center text-sm md:text-base lg:text-lg text-1e1e1e font-normal border-x border-9d9b9b">
+          {{ quantity }}
+        </div>
+
+        <!-- Plus -->
+        <button (click)="increaseQty()"
+          class="w-7 h-7 lg:w-9 lg:h-9 flex items-center justify-center text-1e1e1e text-base md:text-lg lg:text-xl xl:text-2xl  font-normal">
+          +
+        </button>
+      </div>
+
+      <!-- rating & reviews -->
+      <div class="flex items-center gap-0.5 md:gap-1 lg:gap-1.5">
+        <svg class="size-3 md:size-5 lg:size-6" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.7381 0.925939C13.9023 0.644204 14.1375 0.410442 14.4202 0.247971C14.7029 0.0854999 15.0233 0 15.3494 0C15.6754 0 15.9958 0.0854999 16.2786 0.247971C16.5613 0.410442 16.7965 0.644204 16.9606 0.925939L21.1306 8.08418L29.2287 9.83868C29.5473 9.9079 29.8421 10.0594 30.0838 10.2781C30.3256 10.4968 30.5058 10.775 30.6064 11.0851C30.7071 11.3951 30.7248 11.7261 30.6576 12.0451C30.5905 12.3641 30.4409 12.6599 30.2238 12.9031L24.7037 19.0811L25.5392 27.324C25.5722 27.6486 25.5194 27.9761 25.3862 28.2739C25.2529 28.5717 25.0439 28.8294 24.78 29.0211C24.5161 29.2129 24.2064 29.3321 23.882 29.3668C23.5576 29.4014 23.2298 29.3504 22.9313 29.2187L15.3494 25.8768L7.76742 29.2187C7.46891 29.3504 7.14109 29.4014 6.8167 29.3668C6.4923 29.3321 6.18267 29.2129 5.91873 29.0211C5.6548 28.8294 5.44578 28.5717 5.31256 28.2739C5.17934 27.9761 5.12658 27.6486 5.15954 27.324L5.99501 19.0811L0.474901 12.9046C0.257421 12.6614 0.107524 12.3655 0.0401759 12.0463C-0.0271719 11.7271 -0.00961464 11.3958 0.091095 11.0856C0.191805 10.7753 0.372143 10.4968 0.614107 10.278C0.856071 10.0593 1.15119 9.90776 1.47001 9.83868L9.56817 8.08418L13.7381 0.925939Z"
+            fill="#C09D0D" />
+        </svg>
+        <svg class="size-3 md:size-5 lg:size-6" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.7381 0.925939C13.9023 0.644204 14.1375 0.410442 14.4202 0.247971C14.7029 0.0854999 15.0233 0 15.3494 0C15.6754 0 15.9958 0.0854999 16.2786 0.247971C16.5613 0.410442 16.7965 0.644204 16.9606 0.925939L21.1306 8.08418L29.2287 9.83868C29.5473 9.9079 29.8421 10.0594 30.0838 10.2781C30.3256 10.4968 30.5058 10.775 30.6064 11.0851C30.7071 11.3951 30.7248 11.7261 30.6576 12.0451C30.5905 12.3641 30.4409 12.6599 30.2238 12.9031L24.7037 19.0811L25.5392 27.324C25.5722 27.6486 25.5194 27.9761 25.3862 28.2739C25.2529 28.5717 25.0439 28.8294 24.78 29.0211C24.5161 29.2129 24.2064 29.3321 23.882 29.3668C23.5576 29.4014 23.2298 29.3504 22.9313 29.2187L15.3494 25.8768L7.76742 29.2187C7.46891 29.3504 7.14109 29.4014 6.8167 29.3668C6.4923 29.3321 6.18267 29.2129 5.91873 29.0211C5.6548 28.8294 5.44578 28.5717 5.31256 28.2739C5.17934 27.9761 5.12658 27.6486 5.15954 27.324L5.99501 19.0811L0.474901 12.9046C0.257421 12.6614 0.107524 12.3655 0.0401759 12.0463C-0.0271719 11.7271 -0.00961464 11.3958 0.091095 11.0856C0.191805 10.7753 0.372143 10.4968 0.614107 10.278C0.856071 10.0593 1.15119 9.90776 1.47001 9.83868L9.56817 8.08418L13.7381 0.925939Z"
+            fill="#C09D0D" />
+        </svg>
+        <svg class="size-3 md:size-5 lg:size-6" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.7381 0.925939C13.9023 0.644204 14.1375 0.410442 14.4202 0.247971C14.7029 0.0854999 15.0233 0 15.3494 0C15.6754 0 15.9958 0.0854999 16.2786 0.247971C16.5613 0.410442 16.7965 0.644204 16.9606 0.925939L21.1306 8.08418L29.2287 9.83868C29.5473 9.9079 29.8421 10.0594 30.0838 10.2781C30.3256 10.4968 30.5058 10.775 30.6064 11.0851C30.7071 11.3951 30.7248 11.7261 30.6576 12.0451C30.5905 12.3641 30.4409 12.6599 30.2238 12.9031L24.7037 19.0811L25.5392 27.324C25.5722 27.6486 25.5194 27.9761 25.3862 28.2739C25.2529 28.5717 25.0439 28.8294 24.78 29.0211C24.5161 29.2129 24.2064 29.3321 23.882 29.3668C23.5576 29.4014 23.2298 29.3504 22.9313 29.2187L15.3494 25.8768L7.76742 29.2187C7.46891 29.3504 7.14109 29.4014 6.8167 29.3668C6.4923 29.3321 6.18267 29.2129 5.91873 29.0211C5.6548 28.8294 5.44578 28.5717 5.31256 28.2739C5.17934 27.9761 5.12658 27.6486 5.15954 27.324L5.99501 19.0811L0.474901 12.9046C0.257421 12.6614 0.107524 12.3655 0.0401759 12.0463C-0.0271719 11.7271 -0.00961464 11.3958 0.091095 11.0856C0.191805 10.7753 0.372143 10.4968 0.614107 10.278C0.856071 10.0593 1.15119 9.90776 1.47001 9.83868L9.56817 8.08418L13.7381 0.925939Z"
+            fill="#C09D0D" />
+        </svg>
+        <svg class="size-3 md:size-5 lg:size-6" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.7381 0.925939C13.9023 0.644204 14.1375 0.410442 14.4202 0.247971C14.7029 0.0854999 15.0233 0 15.3494 0C15.6754 0 15.9958 0.0854999 16.2786 0.247971C16.5613 0.410442 16.7965 0.644204 16.9606 0.925939L21.1306 8.08418L29.2287 9.83868C29.5473 9.9079 29.8421 10.0594 30.0838 10.2781C30.3256 10.4968 30.5058 10.775 30.6064 11.0851C30.7071 11.3951 30.7248 11.7261 30.6576 12.0451C30.5905 12.3641 30.4409 12.6599 30.2238 12.9031L24.7037 19.0811L25.5392 27.324C25.5722 27.6486 25.5194 27.9761 25.3862 28.2739C25.2529 28.5717 25.0439 28.8294 24.78 29.0211C24.5161 29.2129 24.2064 29.3321 23.882 29.3668C23.5576 29.4014 23.2298 29.3504 22.9313 29.2187L15.3494 25.8768L7.76742 29.2187C7.46891 29.3504 7.14109 29.4014 6.8167 29.3668C6.4923 29.3321 6.18267 29.2129 5.91873 29.0211C5.6548 28.8294 5.44578 28.5717 5.31256 28.2739C5.17934 27.9761 5.12658 27.6486 5.15954 27.324L5.99501 19.0811L0.474901 12.9046C0.257421 12.6614 0.107524 12.3655 0.0401759 12.0463C-0.0271719 11.7271 -0.00961464 11.3958 0.091095 11.0856C0.191805 10.7753 0.372143 10.4968 0.614107 10.278C0.856071 10.0593 1.15119 9.90776 1.47001 9.83868L9.56817 8.08418L13.7381 0.925939Z"
+            fill="#C09D0D" />
+        </svg>
+        <svg class="size-3 md:size-5 lg:size-6" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.7381 0.925939C13.9023 0.644204 14.1375 0.410442 14.4202 0.247971C14.7029 0.0854999 15.0233 0 15.3494 0C15.6754 0 15.9958 0.0854999 16.2786 0.247971C16.5613 0.410442 16.7965 0.644204 16.9606 0.925939L21.1306 8.08418L29.2287 9.83868C29.5473 9.9079 29.8421 10.0594 30.0838 10.2781C30.3256 10.4968 30.5058 10.775 30.6064 11.0851C30.7071 11.3951 30.7248 11.7261 30.6576 12.0451C30.5905 12.3641 30.4409 12.6599 30.2238 12.9031L24.7037 19.0811L25.5392 27.324C25.5722 27.6486 25.5194 27.9761 25.3862 28.2739C25.2529 28.5717 25.0439 28.8294 24.78 29.0211C24.5161 29.2129 24.2064 29.3321 23.882 29.3668C23.5576 29.4014 23.2298 29.3504 22.9313 29.2187L15.3494 25.8768L7.76742 29.2187C7.46891 29.3504 7.14109 29.4014 6.8167 29.3668C6.4923 29.3321 6.18267 29.2129 5.91873 29.0211C5.6548 28.8294 5.44578 28.5717 5.31256 28.2739C5.17934 27.9761 5.12658 27.6486 5.15954 27.324L5.99501 19.0811L0.474901 12.9046C0.257421 12.6614 0.107524 12.3655 0.0401759 12.0463C-0.0271719 11.7271 -0.00961464 11.3958 0.091095 11.0856C0.191805 10.7753 0.372143 10.4968 0.614107 10.278C0.856071 10.0593 1.15119 9.90776 1.47001 9.83868L9.56817 8.08418L13.7381 0.925939Z"
+            fill="#C09D0D" />
+        </svg>
+      </div>
+
+      <p class="text-1e1e1e text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-normal">4.9 (12 reviews)</p>
+
+    </div>
+
+    <!-- Add to Cart & Buy Now button -->
+    <div class="flex items-center justify-between gap-2 sm:gap-2.5 md:gap-3 mb-3 lg:mb-6">
+      <button
+        class="cursor-pointer capitalize w-full py-2 xl:py-3 my-3 text-08503f bg-white border border-08503f text-sm md:text-base lg:text-lg xl:text-xl rounded-md transition">
+        Add To Cart
+      </button>
+
+      <button
+        class="cursor-pointer overflow-hidden block text-center capitalize w-full py-2 xl:py-3 my-3 text-white bg-08503f border border-08503f text-sm md:text-base lg:text-lg xl:text-xl rounded-md transition-all duration-300 hover:scale-[1.02] before:content-[''] before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-white/20 before:skew-x-[-20deg] hover:before:left-[100%] before:transition-all before:duration-500">
+        Buy Now
+      </button>
+    </div>
+
+    <!-- Policies -->
+    <div class="w-full xl:w-4/5 2xl:w-6/7 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 md:gap-3 space-y-2">
+      <div class="flex items-center gap-2">
+        <img class="size-5" src="/assets/images/product/easy-return.png" alt="easy-return">
+        <p class="text-08503f text-sm lg:text-base font-normal">Easy Returns</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <img class="size-5" src="/assets/images/product/shine.png" alt="easy-return">
+        <p class="text-08503f text-sm lg:text-base font-normal">Everlasting Plating Shine</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <img class="size-5" src="/assets/images/product/warranty.png" alt="easy-return">
+        <p class="text-08503f text-sm lg:text-base font-normal">6 Month Warranty</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <img class="size-5" src="/assets/images/product/925-silver.png" alt="easy-return">
+        <p class="text-08503f text-sm lg:text-base font-normal">Certified 925 Silver</p>
+      </div>
+    </div>
+
+    <!-- pair it with -->
+    <div class="w-max rounded-lg border border-08503f px-4 md:px-2 xl:px-4 py-2 mt-4">
+      <p class="text-08503f font-medium text-sm md:text-base lg:text-lg mb-3">Pair it to complete the look!</p>
+      <div class="sm:flex items-center justify-between gap-2 lg:gap-3 xl:gap-5 mb-3 sm:mb-0">
+        <div class="flex items-center justify-start gap-2 lg:gap-3 xl:gap-5">
+          <!-- pair product 1 -->
+          <div class="relative group border border-eee rounded-lg overflow-hidden transition-shadow duration-300 p-1.5">
+            <a routerLink="#" class="block">
+              <div class="relative overflow-hidden size-24 md:size-16 lg:size-22 xl:size-28 aspect-square border-3 border-eee rounded-lg group">
+                <!-- First image -->
+                <img src="/assets/images/product/pendant1.png"
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:-translate-y-full group-hover:scale-105" />
+
+                <!-- Second image -->
+                <img src="/assets/images/product/pendant2.png"
+                  class="absolute inset-0 w-full h-full object-cover -translate-y-full transition-transform duration-500 group-hover:translate-y-0 group-hover:scale-105" />
+              </div>
+            </a>
+            <!-- product  price -->
+            <!-- <div class="bg-transparent my-1 space-y-1 md:space-y-2 xl:space-y-3">
+              <p class="space-x-2">
+                <span class="font-medium text-sm md:text-[15px] text-323232">₹ 1,500</span>
+                <span class="font-medium text-[13px] md:text-sm text-9d9b9b line-through">₹ 2,000</span>
+              </p>
+            </div> -->
+          </div>
+          <!-- plus icon -->
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12.24 7.2712H7.392V12.2392H4.848V7.2712H2.08616e-06V4.9672H4.848V-0.000798225H7.392V4.9672H12.24V7.2712Z"
+              fill="black" />
+          </svg>
+          <!-- pair product 2 -->
+          <div class="relative group border border-eee rounded-lg overflow-hidden transition-shadow duration-300 p-1.5">
+            <a routerLink="#" class="block">
+              <div class="relative overflow-hidden size-24 md:size-16 lg:size-22 xl:size-28 aspect-square border-3 border-eee rounded-lg group">
+                <!-- First image -->
+                <img src="/assets/images/product/earring1.png"
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:-translate-y-full group-hover:scale-105" />
+
+                <!-- Second image -->
+                <img src="/assets/images/product/earring2.png"
+                  class="absolute inset-0 w-full h-full object-cover -translate-y-full transition-transform duration-500 group-hover:translate-y-0 group-hover:scale-105" />
+              </div>
+            </a>
+             <!-- product  price -->
+            <!-- <div class="bg-transparent my-1 space-y-1 md:space-y-2 xl:space-y-3">
+              <p class="space-x-2">
+                <span class="font-medium text-sm md:text-[15px] text-323232">₹ 1,500</span>
+                <span class="font-medium text-[13px] md:text-sm text-9d9b9b line-through">₹ 2,000</span>
+              </p>
+            </div> -->
+          </div>
+        </div>
+        <!-- complete the look button -->
+        <div class="w-full text-center">
+          <button
+            class="cursor-pointer capitalize w-max mx-auto py-2 xl:py-3 px-5 md:px-1 lg:px-2 xl:px-5 my-3 text-08503f bg-white border border-08503f text-sm lg:text-base xl:text-lg rounded-md transition hover:shadow-lg">
+            Complete The Look
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Zoom Modal -->
+<div *ngIf="zoomOpen" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+  <button (click)="closeZoom()" class="absolute top-4 right-4 text-white text-3xl">&times;</button>
+  <button (click)="prevImage()" class="absolute left-4 text-white text-4xl">&#10094;</button>
+  <img [src]="thumbnails[zoomIndex]" class="max-h-[90%] max-w-[90%] object-contain rounded-lg">
+  <button (click)="nextImage()" class="absolute right-4 text-white text-4xl">&#10095;</button>
+</div>

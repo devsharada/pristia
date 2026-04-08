@@ -1,0 +1,67 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5 lg:py-8">
+  <!-- Title section -->
+  <h4 class="capitalize text-xl/tight sm:text-2xl/tight md:text-3xl/tight lg:text-4xl/tight xl:text-5xl/tight font-normal text-center text-08503f">
+    Related Articles</h4>
+
+  <!-- product slider -->
+  <div class="relative mt-4 md:mt-6 lg:mt-8">
+    <!-- Navigation Buttons -->
+    <div class="absolute left-0 lg:-left-4 xl:-left-10 top-1/2 -translate-y-1/2 z-10">
+      <button
+        class="cursor-pointer blog-button-prev size-7 sm:size-9 flex items-center justify-center text-xl sm:text-2xl bg-white text-08503f hover:shadow-md hover:bg-white border border-gray-300 rounded-full p-1">
+        <svg class="w-[6px] lg:w-[10px]" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M11.2258 23.6955L0.354838 13.3602C0.225806 13.2372 0.134623 13.1039 0.08129 12.9604C0.0270964 12.8168 0 12.663 0 12.499C0 12.3349 0.0270964 12.1811 0.08129 12.0376C0.134623 11.894 0.225806 11.7607 0.354838 11.6377L11.2258 1.2717C11.5269 0.984609 11.9032 0.841064 12.3548 0.841064C12.8065 0.841064 13.1935 0.994863 13.5161 1.30246C13.8387 1.61006 14 1.96892 14 2.37905C14 2.78917 13.8387 3.14804 13.5161 3.45563L4.03226 12.499L13.5161 21.5423C13.8172 21.8294 13.9677 22.1829 13.9677 22.6029C13.9677 23.0237 13.8065 23.3879 13.4839 23.6955C13.1613 24.0031 12.7849 24.1569 12.3548 24.1569C11.9247 24.1569 11.5484 24.0031 11.2258 23.6955Z"
+            fill="#08503f" />
+        </svg>
+      </button>
+    </div>
+    <div class="absolute right-0 lg:-right-4 xl:-right-10 top-1/2 -translate-y-1/2 z-10">
+      <button
+        class="cursor-pointer blog-button-next size-7 sm:size-9 flex items-center justify-center text-xl sm:text-2xl bg-white text-08503f hover:shadow-md hover:bg-white border border-gray-300 rounded-full p-1">
+        <svg class="w-[6px] lg:w-[10px]" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M2.77419 1.30355L13.6452 11.6388C13.7742 11.7618 13.8654 11.8951 13.9187 12.0387C13.9729 12.1822 14 12.336 14 12.5001C14 12.6641 13.9729 12.8179 13.9187 12.9615C13.8654 13.105 13.7742 13.2383 13.6452 13.3613L2.77419 23.7273C2.47312 24.0144 2.09677 24.158 1.64516 24.158C1.19355 24.158 0.806452 24.0042 0.483871 23.6966C0.16129 23.389 0 23.0301 0 22.62C0 22.2098 0.16129 21.851 0.483871 21.5434L9.96774 12.5001L0.483871 3.45673C0.182796 3.16964 0.0322571 2.8161 0.0322571 2.39613C0.0322571 1.97534 0.193548 1.61115 0.516129 1.30355C0.838709 0.995955 1.21505 0.842157 1.64516 0.842157C2.07527 0.842157 2.45161 0.995955 2.77419 1.30355Z"
+            fill="#08503f" />
+        </svg>
+      </button>
+    </div>
+
+    <swiper-container #swiperRef init="false">
+      <!-- product card -->
+      <swiper-slide *ngFor="let items of relatedBlogs" class="py-1">
+        <!-- blogs card -->
+        <div class="relative rounded-lg border border-eee overflow-hidden">
+          <a [routerLink]="items.link">
+            <img class="w-full h-auto rounded-t-xl" [src]="items.img" [alt]="items.alt">
+            <div class="p-4">
+              <p class="line-clamp-2 text-08503f font-oldstandtt font-normal text-sm md:text-base xl:text-xl mb-2">{{ items.title}}
+              </p>
+              <p class="line-clamp-2 text-9d9b9b font-normal text-xs md:text-sm lg:text-base mb-2">{{
+                items.content }}</p>
+              <div class="flex items-center justify-between gap-2 sm:gap-2.5 md:gap-3">
+                <p class="flex items-center justify-end gap-1.5 text-9d9b9b font-normal text-xs sm:text-sm">
+                  <svg class="size-3 sm:size-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path fill="#454242"
+                        d="M5.67326018,0 C6.0598595,0 6.37326018,0.31324366 6.37326018,0.699649298 L6.373,2.009 L13.89,2.009 L13.8901337,0.708141199 C13.8901337,0.321735562 14.2035343,0.00849190182 14.5901337,0.00849190182 C14.976733,0.00849190182 15.2901337,0.321735562 15.2901337,0.708141199 L15.29,2.009 L18,2.00901806 C19.1045695,2.00901806 20,2.90399995 20,4.00801605 L20,18.001002 C20,19.1050181 19.1045695,20 18,20 L2,20 C0.8954305,20 0,19.1050181 0,18.001002 L0,4.00801605 C0,2.90399995 0.8954305,2.00901806 2,2.00901806 L4.973,2.009 L4.97326018,0.699649298 C4.97326018,0.31324366 5.28666085,0 5.67326018,0 Z M1.4,7.742 L1.4,18.001002 C1.4,18.3322068 1.66862915,18.6007014 2,18.6007014 L18,18.6007014 C18.3313708,18.6007014 18.6,18.3322068 18.6,18.001002 L18.6,7.756 L1.4,7.742 Z M6.66666667,14.6186466 L6.66666667,16.284778 L5,16.284778 L5,14.6186466 L6.66666667,14.6186466 Z M10.8333333,14.6186466 L10.8333333,16.284778 L9.16666667,16.284778 L9.16666667,14.6186466 L10.8333333,14.6186466 Z M15,14.6186466 L15,16.284778 L13.3333333,16.284778 L13.3333333,14.6186466 L15,14.6186466 Z M6.66666667,10.6417617 L6.66666667,12.3078931 L5,12.3078931 L5,10.6417617 L6.66666667,10.6417617 Z M10.8333333,10.6417617 L10.8333333,12.3078931 L9.16666667,12.3078931 L9.16666667,10.6417617 L10.8333333,10.6417617 Z M15,10.6417617 L15,12.3078931 L13.3333333,12.3078931 L13.3333333,10.6417617 L15,10.6417617 Z M4.973,3.408 L2,3.40831666 C1.66862915,3.40831666 1.4,3.67681122 1.4,4.00801605 L1.4,6.343 L18.6,6.357 L18.6,4.00801605 C18.6,3.67681122 18.3313708,3.40831666 18,3.40831666 L15.29,3.408 L15.2901337,4.33697436 C15.2901337,4.72338 14.976733,5.03662366 14.5901337,5.03662366 C14.2035343,5.03662366 13.8901337,4.72338 13.8901337,4.33697436 L13.89,3.408 L6.373,3.408 L6.37326018,4.32848246 C6.37326018,4.7148881 6.0598595,5.02813176 5.67326018,5.02813176 C5.28666085,5.02813176 4.97326018,4.7148881 4.97326018,4.32848246 L4.973,3.408 Z">
+                      </path>
+                    </g>
+                  </svg>{{ items.date }}
+                </p>
+                <button type="button"
+                  class="cursor-pointer hover:underline text-sm sm:text-base lg:text-base font-normal bg-white text-08503f">
+                  Read More
+                </button>
+              </div>
+            </div>
+          </a>
+        </div>
+      </swiper-slide>
+
+    </swiper-container>
+
+  </div>
+</div>

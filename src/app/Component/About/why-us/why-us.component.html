@@ -1,0 +1,24 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20">
+  <div class="text-center bg-9d9b9b33 px-5 md:px-10 xl:px-16 py-5 lg:py-12 ">
+    <!-- Title section -->
+    <p class="uppercase text-08503f text-base md:text-lg lg:text-xl xl:text-2xl font-semibold mb-3 lg:mb-6">WHY CHOOSE
+      US</p>
+    <h2
+      class="capitalize text-xl/tight sm:text-2xl/tight md:text-3xl/tight lg:text-4xl/tight xl:text-[42px]/tight font-semibold text-08503f">
+      Redefining Elegance, One Creation at a Time</h2>
+    <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-9d9b9b mt-1 lg:mt-2">
+      Designed with care, created with expertise.Jewelry that speaks elegance in every detail.
+    </p>
+
+    <!-- why choose us card -->
+    <div class="w-full grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-2.5 md:6 lg:gap-10 mt-6 xl:mt-12">
+      <div *ngFor="let value of values"
+        class="bg-white space-y-2 lg:space-y-4 p-2 sm:p-3 md:p-4 lg:p-8 border border-eee rounded-lg shadow-md text-center">
+        <img [src]="value.image" [alt]="value.image" class="size-8 lg:size-11 mx-auto">
+        <p class="text-1e1e1e font-semibold text-lg md:text-xl lg:text-2xl xl:text-3xl font-oldstandtt">{{ value.title
+          }}</p>
+        <p class="text-9d9b9b font-normal text-xs md:text-sm xl:text-base">{{ value.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,213 @@
+<div class="sticky top-0 z-50 bg-white pt-2 md:pb-0 border-b border-08503f">
+  <div class="w-full mx-auto px-2 lg:px-5 xl:px-16">
+    <div class="flex items-center justify-between gap-5 relative pb-2 lg:pb-2.5">
+      <!-- Logo -->
+      <a routerLink="/home">
+        <img class="w-36 sm:w-42 lg:w-56" src="/assets/images/home/logo1.png" alt="brand logo">
+      </a>
+
+      <!-- MOBILE MENU TOGGLE -->
+      <div class="lg:hidden">
+        <button (click)="toggleMobileMenu()" class="p-1 border border-e1e1e17d rounded-md me-2">
+          <svg class="w-5 sm:w-6" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M2.1556 8.02968C1.40696 8.02968 0.800049 8.63661 0.800049 9.38523C0.800049 10.1339 1.40696 10.7408 2.1556 10.7408V8.02968ZM23.8445 10.7408C24.5931 10.7408 25.2 10.1339 25.2 9.38523C25.2 8.63661 24.5931 8.02968 23.8445 8.02968V10.7408ZM2.1556 15.2593C1.40696 15.2593 0.800049 15.8662 0.800049 16.6149C0.800049 17.3635 1.40696 17.9704 2.1556 17.9704V15.2593ZM23.8445 17.9704C24.5931 17.9704 25.2 17.3635 25.2 16.6149C25.2 15.8662 24.5931 15.2593 23.8445 15.2593V17.9704ZM2.1556 0.800049C1.40696 0.800049 0.800049 1.40696 0.800049 2.1556C0.800049 2.90425 1.40696 3.51116 2.1556 3.51116V0.800049ZM23.8445 3.51116C24.5931 3.51116 25.2 2.90425 25.2 2.1556C25.2 1.40696 24.5931 0.800049 23.8445 0.800049V3.51116ZM2.1556 10.7408H23.8445V8.02968H2.1556V10.7408ZM2.1556 17.9704H23.8445V15.2593H2.1556V17.9704ZM2.1556 3.51116H23.8445V0.800049H2.1556V3.51116Z"
+              fill="#1E1E1E" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Desktop Search Bar -->
+      <div class="hidden md:block w-full md:max-w-sm lg:max-w-lg">
+        <div class="flex items-center bg-white border border-eee rounded-full px-3 py-2">
+
+          <input type="text" placeholder="Search for Jewelry..."
+            class="flex-grow outline-none text-base text-1e1e1e placeholder-8d8989 px-2" />
+
+          <svg class="cursor-pointer size-5 text-gray-500" viewBox="0 0 20 20" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 19L14.657 14.657M14.657 14.657C15.3998 13.9141
+      15.9891 13.0322 16.3912 12.0615C16.7932 11.0909 17.0002 10.0506
+      17.0002 9C17.0002 7.9494 16.7932 6.90908 16.3912 5.93845C15.9891
+      4.96782 15.3998 4.08589 14.657 3.343C13.9141 2.60011 13.0321
+      2.01082 12.0615 1.60877C11.0909 1.20673 10.0506 0.999794
+      8.99996 0.999794C7.94936 0.999794 6.90905 1.20673 5.93842
+      1.60877C4.96779 2.01082 4.08585 2.60011 3.34296 3.343C1.84263
+      4.84333 0.999756 6.87821 0.999756 9C0.999756 11.1218 1.84263
+      13.1567 3.34296 14.657C4.84329 16.1573 6.87818 17.0002 8.99996
+      17.0002C11.1217 17.0002 13.1566 16.1573 14.657 14.657Z" stroke="#08503f" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right side buttons -->
+      <div class="flex items-center justify-end gap-1 sm:gap-3 md:gap-2.5 lg:gap-4 xl:gap-5">
+
+        <!-- wishlist icon -->
+        <a routerLink="/wishlist" class="relative group">
+          <svg class="size-6 sm:size-8 lg:size-9 stroke-1e1e1e group-hover:stroke-08503f" viewBox="0 0 60 60"
+            fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M53.7499 21.3455C53.7499 14.2781 48.0205 8.54883 40.9531 8.54883C36.3003 8.54883 32.2396 11.0403 29.9999 14.7538C27.76 11.0403 23.6995 8.54883 19.0466 8.54883C11.9792 8.54883 6.25 14.2781 6.25 21.3455C6.25 22.9611 6.562 24.5005 7.10825 25.9238C11.3396 38.0948 30 51.4507 30 51.4507C30 51.4507 48.6603 38.0948 52.8918 25.9238C53.438 24.5006 53.7499 22.9611 53.7499 21.3455Z"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <!-- quantity -->
+          <div
+            class="absolute top-0 right-0 sm:top-0 sm:-right-1 size-3 sm:size-5 rounded-full bg-9d9b9b flex items-center justify-center">
+            <p class="text-white font-semibold text-[9px] sm:text-[10px]">0</p>
+          </div>
+        </a>
+
+        <!-- user Login -->
+        <div class="relative">
+          <button (click)="openAuth('login')" class="cursor-pointer text-black hover:bg-efffe8 p-0.5 rounded-md group">
+            <svg class="size-6 sm:size-8 lg:size-9 fill-1e1e1e group-hover:fill-08503f" viewBox="0 0 42 43" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M21 7.65468C22.8565 7.65468 24.637 8.39218 25.9497 9.70493C27.2625 11.0177 28 12.7982 28 14.6547C28 16.5112 27.2625 18.2917 25.9497 19.6044C24.637 20.9172 22.8565 21.6547 21 21.6547C19.1435 21.6547 17.363 20.9172 16.0503 19.6044C14.7375 18.2917 14 16.5112 14 14.6547C14 12.7982 14.7375 11.0177 16.0503 9.70493C17.363 8.39218 19.1435 7.65468 21 7.65468ZM21 25.1547C28.735 25.1547 35 28.2872 35 32.1547V35.6547H7V32.1547C7 28.2872 13.265 25.1547 21 25.1547Z" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- cart icon -->
+        <a routerLink="/cart" class="relative group">
+          <svg class="size-6 sm:size-8 lg:size-9 stroke-1e1e1e group-hover:stroke-08503f" viewBox="0 0 27 30"
+            fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 15L9 9.5C9 7.01472 11.0147 5 13.5 5V5C15.9853 5 18 7.01472 18 9.5L18 15"
+              stroke-linecap="round" />
+            <path
+              d="M4.22244 14.9508C4.35409 13.1954 4.41992 12.3177 4.99532 11.7839C5.57071 11.25 6.45088 11.25 8.21123 11.25H18.7888C20.5491 11.25 21.4293 11.25 22.0047 11.7839C22.5801 12.3177 22.6459 13.1954 22.7776 14.9508L23.4638 24.1004C23.5393 25.107 23.577 25.6103 23.2803 25.9302C22.9835 26.25 22.4788 26.25 21.4694 26.25H5.53062C4.5212 26.25 4.0165 26.25 3.71974 25.9302C3.42298 25.6103 3.46072 25.107 3.53622 24.1004L4.22244 14.9508Z" />
+          </svg>
+          <!-- quantity -->
+          <div
+            class="absolute top-0 right-0 sm:top-0 sm:-right-1 size-3 sm:size-5 rounded-full bg-9d9b9b flex items-center justify-center">
+            <p class="text-white font-semibold text-[9px] sm:text-[10px]">0</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!--  Search Bar(Mobile) -->
+    <div class="md:hidden w-full mb-3">
+        <div class="flex items-center justify-between bg-white border border-eee rounded-full px-2 py-1.5">
+
+          <input type="text" placeholder="Search for Jewelry..."
+            class="w-[calc(100%-25px)] outline-none text-base text-1e1e1e placeholder-8d8989 px-2" />
+
+          <svg class="cursor-pointer size-5 text-gray-500" viewBox="0 0 20 20" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 19L14.657 14.657M14.657 14.657C15.3998 13.9141
+      15.9891 13.0322 16.3912 12.0615C16.7932 11.0909 17.0002 10.0506
+      17.0002 9C17.0002 7.9494 16.7932 6.90908 16.3912 5.93845C15.9891
+      4.96782 15.3998 4.08589 14.657 3.343C13.9141 2.60011 13.0321
+      2.01082 12.0615 1.60877C11.0909 1.20673 10.0506 0.999794
+      8.99996 0.999794C7.94936 0.999794 6.90905 1.20673 5.93842
+      1.60877C4.96779 2.01082 4.08585 2.60011 3.34296 3.343C1.84263
+      4.84333 0.999756 6.87821 0.999756 9C0.999756 11.1218 1.84263
+      13.1567 3.34296 14.657C4.84329 16.1573 6.87818 17.0002 8.99996
+      17.0002C11.1217 17.0002 13.1566 16.1573 14.657 14.657Z" stroke="#08503f" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+
+    <!-- NAVIGATION (Desktop) -->
+    <ul class="hidden lg:flex justify-center lg:gap-7 xl:gap-9 relative">
+      <li *ngFor="let item of navItems" [routerLink]="item.path" routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: item.label === 'Home' }" class="
+    group cursor-pointer relative
+    inline-block
+    after:absolute after:bottom-0 after:left-0 after:h-[3px] after:bg-08503f
+    after:w-0 after:transition-all after:duration-300
+    hover:after:w-full
+  " (mouseenter)="showMenu(item.label)" (mouseleave)="hideMenu()">
+        <a
+          class="capitalize whitespace-nowrap text-base lg:text-lg xl:text-xl text-08503f font-normal pb-2 flex items-center gap-x-1 xl:gap-x-2">
+          {{ item.label }}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Desktop Mega Menu  -->
+  <div *ngIf="hoveredMenu && hoveredMenu !== 'Home'" (mouseenter)="showMenu(hoveredMenu)" (mouseleave)="hideMenu()"
+    class="hidden lg:flex absolute left-0 top-full w-full bg-white shadow-lg border-t border-gray-200 z-50 transition-opacity duration-300">
+
+    <div class="flex w-full mx-auto px-2 lg:px-5 xl:px-16 py-8 gap-4">
+      <!-- Loop through the categories for hovered menu -->
+      <ng-container *ngFor="let section of categories[hoveredMenu]">
+        <div class="w-1/5">
+          <p *ngIf="section.title !== 'Image'"
+            class="font-normal text-08503f underline text-2xl font-oldstandtt mb-5 capitalize">
+            {{ section.title }}
+          </p>
+          <ul *ngIf="section.title !== 'Image'" class="space-y-3.5 text-sm">
+            <li *ngFor="let item of section.items">
+              <a [routerLink]="item.path"
+                class="flex items-center gap-2 hover:text-08503f text-1e1e1e font-normal text-[17px] capitalize">
+                <img *ngIf="item.image" class="size-8 object-contain" [src]="item.image" [alt]="item.label">
+                {{ item.label }}
+              </a>
+            </li>
+          </ul>
+
+          <!-- For Image Section -->
+          <img *ngIf="section.title === 'Image'" [src]="section.items[0].image" alt="Menu Image"
+            class="w-full h-auto object-cover rounded">
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- MOBILE OFFCANVAS -->
+  <div *ngIf="isMobileMenuOpen" class="lg:hidden">
+    <!-- Dark backdrop -->
+    <div class="fixed inset-0 bg-black/40 transition-opacity duration-300" *ngIf="isMobileMenuOpen"
+      (click)="toggleMobileMenu()" [class.opacity-100]="isMobileMenuOpen" [class.opacity-0]="!isMobileMenuOpen"></div>
+
+    <!-- Sidebar -->
+    <div
+      class="fixed top-0 left-0 h-full w-72 max-w-xs bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out"
+      [class.translate-x-0]="isMobileMenuOpen" [class.translate-x-full]="!isMobileMenuOpen">
+      <!-- Close button -->
+      <button (click)="toggleMobileMenu()"
+        class="absolute top-4 right-4 cursor-pointer text-1e1e1e hover:opacity-50 text-xl font-bold">✕</button>
+      <!-- Logo -->
+      <a routerLink="/home" class="block p-2 border-b border-eee">
+        <img class="w-36 sm:w-42 lg:w-56" src="/assets/images/home/logo1.png" alt="brand logo">
+      </a>
+
+      <div class="lg:hidden w-full bg-white border-b border-eee mt-2">
+        <div *ngFor="let key of categoryKeys; let catIndex = index">
+          <!-- Top-level accordion -->
+          <button (click)="toggleTopAccordion(catIndex)"
+            class="w-full flex justify-between items-center py-2 px-4 capitalize whitespace-nowrap text-base lg:text-lg xl:text-xl text-08503f font-normal pb-2 gap-x-1 xl:gap-x-2">
+            {{ key }}
+            <span>{{ isTopAccordionOpen(catIndex) ? '-' : '+' }}</span>
+          </button>
+
+          <!-- Accordion content -->
+          <div *ngIf="isTopAccordionOpen(catIndex)" class="pl-4">
+            <div *ngFor="let section of categories[key]">
+              <!-- Skip image section -->
+              <ng-container *ngIf="section.title !== 'Image'">
+                <p class="font-normal text-08503f underline text-[15px] font-oldstandtt mb-2 pl-2 capitalize py-1">{{
+                  section.title }}</p>
+                <ul class="pl-6 mb-4 space-y-2 text-sm">
+                  <li *ngFor="let item of section.items">
+                    <a [routerLink]="item.path" (click)="closeMobileMenu()" class="block py-1 text-gray-900 capitalize">
+                      {{ item.label }}
+                    </a>
+                  </li>
+                </ul>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-auth [isOpen]="isAuthOpen" [activeTab]="activeAuthTab" (close)="closeAuth()"></app-auth>

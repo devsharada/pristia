@@ -1,0 +1,28 @@
+<div *ngIf="isOpen" (click)="onClose()" class="fixed inset-0 z-50 flex items-center justify-center shadow-lg bg-black/40">
+  <div (click)="$event.stopPropagation()"
+    class="bg-white w-full max-w-4xl mx-auto rounded-lg shadow-lg relative overflow-hidden">
+
+    <!-- Close button -->
+    <button (click)="onClose()"
+      class="absolute top-1 right-1 text-gray-600 hover:text-white hover:bg-08503f px-2 py-1 rounded-md text-xl">
+      ✕
+    </button>
+
+    <div class="sm:flex items-stretch w-full">
+      <!-- Left side image -->
+      <div class="w-full hidden sm:block sm:w-1/2">
+        <img class="w-full h-full object-cover rounded-lg"
+       [src]="tabImages[activeTab]"
+       alt="auth-image">
+      </div>
+
+      <!-- Right side (login / register forms) -->
+      <div class="w-full h-full bg-white sm:w-1/2 flex flex-col justify-center">
+        <app-login *ngIf="activeTab === 'login'" (registerClick)="switchToRegister()" (verifyOtpClick)="switchToVerifyOtp()"></app-login>
+        <app-register *ngIf="activeTab === 'register'" (loginClick)="switchToLogin()" (verifyOtpClick)="switchToVerifyOtp()"></app-register>
+        <app-verify-otp *ngIf="activeTab === 'verifyOtp'" (registerClick)="switchToRegister()"></app-verify-otp>
+
+      </div>
+    </div>
+  </div>
+</div>

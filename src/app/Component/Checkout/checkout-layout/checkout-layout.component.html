@@ -1,0 +1,25 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5 lg:py-10">
+
+  <app-information
+    *ngIf="activeStep === 'information'"
+    (continue)="goToShipping()">
+  </app-information>
+
+  <app-shipping
+    *ngIf="activeStep === 'shipping'"
+    (continue)="goToConfirm()"
+    (back)="goBackToInformation()">
+  </app-shipping>
+
+  <app-confirm
+    *ngIf="activeStep === 'confirm'"
+    (backToShipping)="goBackToShipping()"
+    (backToInformation)="goBackToInformation()"
+    (continue)="goToOrderPlaced()">
+  </app-confirm>
+
+  <app-order-placed
+    *ngIf="activeStep === 'orderPlaced'">
+  </app-order-placed>
+
+</div>

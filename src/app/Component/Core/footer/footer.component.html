@@ -1,0 +1,144 @@
+<footer class="relative bg-08503f py-8 lg:py-12 px-2 lg:px-5 xl:px-16">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
+
+    <!-- Logo & About -->
+    <div>
+      <a routerLink="/home">
+        <img src="/assets/images/home/logo1.png" alt="Logo" class="cursor-pointer mb-4 w-2/3 xl:w-64" />
+      </a>
+      <p class="text-white text-xs sm:text-sm lg:text-base font-normal">
+        We offers exquisite, handcrafted precious jewellery,
+        blending timeless elegance with modern design for every special moment.
+      </p>
+
+    </div>
+
+    <div class="col-span-2 grid grid-cols-1 md:grid-cols-2 md:gap-4 xl:gap-8 xl:pl-14">
+      <!-- Quick Links 1 -->
+      <div>
+        <!-- Desktop -->
+        <h3 class="font-medium text-white text-base lg:text-[20px] mb-3 md:mb-4 hidden md:block mt-5">Quick Links</h3>
+        <ul class="hidden md:block space-y-2 ">
+          <li><a routerLink="/home" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Home</a></li>
+          <li><a routerLink="/about-us" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">About Us</a>
+          </li>
+          <li><a routerLink="/products" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Products</a>
+          </li>
+          <li><a routerLink="/contact-us" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Contact Us</a>
+          </li>
+        </ul>
+
+        <!-- Mobile Accordion -->
+        <div class="md:hidden border-y border-gray-800 py-1">
+          <button (click)="toggleAccordion('quick1')"
+            class="w-full text-left text-white text-base lg:text-[20px] flex justify-between items-center py-2">
+            Quick Links
+            <span>{{ accordion.quick1 ? '−' : '+' }}</span>
+          </button>
+          <ul *ngIf="accordion.quick1" class="space-y-2 pl-2">
+            <li><a routerLink="/" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Home</a></li>
+            <li><a routerLink="/about-us" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">About Us</a>
+            </li>
+            <li><a routerLink="/products" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Products</a>
+            </li>
+            <li><a routerLink="/contact-us" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Contact
+                Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Quick Links 2 -->
+      <div>
+        <!-- Desktop -->
+        <h3 class="font-medium text-base lg:text-[20px] text-white mb-3 md:mb-4 hidden md:block mt-5">Information</h3>
+        <ul class="hidden md:block space-y-2">
+          <li><a routerLink="/terms-and-conditions"
+              class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Terms &
+              Conditions</a></li>
+          <li><a routerLink="/privacy-policy" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Privacy
+              Policy</a></li>
+          <li><a routerLink="/return-and-refund-policy"
+              class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Return & Refund Policy</a></li>
+          <li><a routerLink="/faq" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">FAQ</a></li>
+          <li><a routerLink="/blogs" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Blogs</a></li>
+        </ul>
+
+        <!-- Mobile Accordion -->
+        <div class="md:hidden border-b border-gray-800 py-1">
+          <button (click)="toggleAccordion('quick2')"
+            class="w-full text-left text-white text-base lg:text-[20px] flex justify-between items-center py-2">
+            Information
+            <span>{{ accordion.quick2 ? '−' : '+' }}</span>
+          </button>
+          <ul *ngIf="accordion.quick2" class="space-y-2 text-white hover:text-c09d0d pl-2">
+            <li><a routerLink="/terms-and-conditions"
+                class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Terms &
+                Conditions</a></li>
+            <li><a routerLink="/privacy-policy" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Privacy
+                Policy</a></li>
+            <li><a routerLink="/return-and-refund-policy"
+                class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Return & Refund Policy</a></li>
+            <li><a routerLink="/faq" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">FAQ</a></li>
+            <li><a routerLink="/blogs" class="text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">Blogs</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h3 class="text-white text-base lg:text-[20px] font-medium mb-3 md:mb-4 mt-5">Contact</h3>
+      <ul class="space-y-3 text-white hover:text-c09d0d text-sm">
+        <li class="flex items-start gap-4 text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal">
+          <img class="size-4 md:size-6" src="/assets/images/home/address.png" alt="address">
+          <p class="-mt-1 capitalize">
+            Marvel Fuego, 5th Floor
+            Office no. 5050, Magarpatta hadapsqar, pune</p>
+        </li>
+        <li class="flex items-center space-x-2">
+          <a href="mailto:info@xyz.com"
+            class="flex items-center gap-4 cursor-pointer text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal hover:underline">
+            <img class="size-4 md:size-6" src="/assets/images/home/email.png" alt="mail">info[at]xyz.com
+          </a>
+        </li>
+
+        <li class="flex items-center space-x-2">
+          <a href="tel:+918523695670"
+            class="flex items-center gap-4 cursor-pointer text-white hover:text-c09d0d text-xs sm:text-sm lg:text-base font-normal hover:underline">
+            <img class="size-4 md:size-6" src="/assets/images/home/phone.png" alt="phone">+91 852 3695 5670
+          </a>
+        </li>
+
+      </ul>
+
+      <!-- social media icon with link -->
+      <div class="flex items-center justify-start space-x-4 mt-6">
+        <div *ngFor="let social of socialMediaLinks">
+          <a [href]="social.url" target="_blank" rel="noopener noreferrer"
+            class="bg-white rounded-full size-7 lg:size-9 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+            <img [src]="social.path" [alt]="social.name" class="size-4 md:size-5">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="mt-6 text-white text-xs md:text-base lg:text-lg font-normal text-center">Copyright © {{ currentYear }}. All Rights Reserved.</p>
+
+</footer>
+<!-- Back to Top Button -->
+<button *ngIf="showButton" (click)="scrollToTop()"
+  class="cursor-pointer fixed bottom-5 right-5 bg-white p-2 rounded-full shadow-lg z-50
+         transform transition-all duration-500 opacity-0 translate-x-10 translate-y-5 hover:scale-110 hover:bg-gray-300" [ngClass]="{
+    'translate-x-0 translate-y-0 opacity-100': showButton,
+    'translate-x-10 translate-y-5 opacity-0': !showButton
+  }" title="Back to Top">
+  <svg class="size-4 lg:size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+      <path d="M12 6V18M12 6L7 11M12 6L17 11" stroke="#000000" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </g>
+  </svg>
+</button>

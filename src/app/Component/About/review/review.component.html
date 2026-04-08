@@ -1,0 +1,74 @@
+<div class="w-full mx-auto px-5 lg:px-10 xl:px-20 py-5 lg:py-8">
+  <div class="w-full h-auto">
+    <img class="w-full object-cover" src="/assets/images/about/about-bg.png" alt="">
+  </div>
+
+  <div class="-mt-22 sm:-mt-44 md:-mt-56 lg:-mt-64 xl:-mt-96">
+    <!-- Title section -->
+    <div class="px-2 mt-3 md:mt-10 lg:mt-14">
+      <h2
+        class="capitalize text-lg/tight sm:text-xl/tight md:text-2xl/tight lg:text-3xl/tight xl:text-[42px]/tight font-semibold text-center text-white">
+        WHAT THEY SAY ABOUT US</h2>
+      <p
+        class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-[21px] text-white text-center mt-0.5 md:w-2/3 lg:w-1/2 mx-auto">
+        What Our Customers Say About Their Shine.
+      </p>
+    </div>
+
+    <!-- review slider -->
+    <div class="relative mt-3 lg:mt-8 lg:w-[90%] mx-auto">
+
+      <swiper-container #swiperRef init="false">
+        <!-- review card -->
+        <swiper-slide *ngFor="let review of reviews" class="py-1 px-1">
+          <div
+            class="bg-white border border-c09d0d p-4 xl:p-8 rounded-md h-full flex flex-col justify-between sm:min-h-[230px] lg:min-h-[250px] xl:min-h-[285px]">
+            <div>
+              <div class="flex items-center justify-start gap-2 lg:gap-3 mb-4">
+                <div class="bg-c09d0d rounded-full size-10 md:size-14 xl:size-16 flex items-center justify-center">
+                  <svg fill="#fff" class="size-6 md:size-10 xl:size-12 icon flat-color" viewBox="0 0 24 24" id="user-3"
+                    data-name="Flat Color" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path id="primary"
+                        d="M21,20a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2,8,8,0,0,1,1.79-5,2,2,0,0,1,2.67-.39,8.07,8.07,0,0,0,9.07,0,2,2,0,0,1,2.68.39A8,8,0,0,1,21,20Zm-9-6A6,6,0,1,0,6,8,6,6,0,0,0,12,14Z"
+                        style="fill: #fff;"></path>
+                    </g>
+                  </svg>
+                </div>
+                <div>
+                  <p
+                    class="font-normal text-[15px] md:text-base lg:text-lg xl:text-[22px] text-1e1e1e font-oldstandtt capitalize mb-1">
+                    {{ review.name }}</p>
+                  <img [src]="review.rating" [alt]="review.alt" class="w-20 md:w-24 xl:w-28" />
+                </div>
+              </div>
+              <p
+                class="text-9d9b9b font-normal text-sm md:text-base xl:text-lg font-oldstandtt line-clamp-7  xl:line-clamp-5">
+                {{ review.text }}</p>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+
+      <!-- Navigation Buttons -->
+      <div class="flex items-center justify-center absolute left-1/2 -translate-x-1/2 z-10 mt-2 sm:mt-4 xl:mt-6">
+        <button class="cursor-pointer swiper-review-prev1 px-4 block">
+          <svg class="w-12 h-2 xl:w-16 xl:h-2" viewBox="0 0 64 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M7.73518 6.90622L4.65362 4.81086L63.2589 4.80922V3.16966L5.02088 3.1713L7.92372 1.50304L7.10722 0.081543L0.426823 3.91976L6.81292 8.26214L7.73518 6.90622Z"
+              fill="#08503F" />
+          </svg>
+        </button>
+        <button class="cursor-pointer swiper-review-next1 px-4 block">
+          <svg class="w-12 h-2 xl:w-16 xl:h-2" viewBox="0 0 64 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M56.0998 2.07229L59.1813 4.16765L0.57605 4.16929L0.57605 5.80886L58.8141 5.80722L55.9112 7.47547L56.7277 8.89697L63.4081 5.05876L57.022 0.716377L56.0998 2.07229Z"
+              fill="#08503F" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

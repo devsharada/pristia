@@ -1,0 +1,157 @@
+<div class="bg-white shadow rounded-md p-3 md:p-4 lg:px-8 lg:py-6">
+  <div class="sm:flex items-center justify-between mb-4">
+    <h1 class="text-lg sm:text-xl md:text-xl lg:text-2xl font-medium mb-4 sm:mb-0 text-08503f">My Orders</h1>
+    <div class="w-full sm:w-1/2 sm:flex items-center justify-end gap-2 lg:gap-4">
+      <!-- search bar -->
+      <div class="relative w-full mb-2 sm:mb-0">
+        <input type="text"
+          class="block px-2 pb-2 pt-3 w-full text-sm md:text-[15px] text-1e1e1e bg-white rounded-md border-1 border-eee appearance-none focus:outline-none focus:ring-0 focus:border-08503f peer"
+          placeholder=" " />
+        <label
+          class="absolute text-[13px] xl:text-base text-9d9b9b duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-1 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Search
+          Order ID/SKU/Product</label>
+      </div>
+      <!-- order status -->
+      <div class="relative">
+        <select id="zodiacSign"
+          class="block px-2.5 pb-2 pt-3 w-max text-sm md:text-[15px] text-1e1e1e font-normal bg-white rounded-md border-1 border-eee focus:outline-none focus:ring-0 focus:border-08503f peer">
+          <option value="" selected>All</option>
+          <option>Pending</option>
+          <option>Delivered</option>
+          <option>Returned</option>
+          <option>Cancelled</option>
+
+        </select>
+        <label for="zodiacSign"
+          class="capitalize absolute text-base text-9d9d9d duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
+          Status
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let order of paginatedOrders" class="border border-eee rounded-md p-2 lg:p-4 mb-4">
+    <!-- Order Header -->
+    <div class="p-3 bg-faf7f0">
+      <div class="flex flex-col sm:flex-row lg:items-center lg:justify-between gap-2 lg:gap-4">
+        <div
+          class="w-full lg:w-max xl:flex items-center justify-between space-y-1 gap-2 md:gap-4 lg:gap-10 mb-4 sm:mb-0">
+          <div class="flex items-center justify-start gap-2">
+            <img class="size-6 md:size-9" [src]="getStatusIcon(order.status)" [alt]="order.status" />
+            <div class="flex xl:flex-col 2xl:flex-row items-center xl:items-start gap-2">
+              <p class="text-sm 2xl:text-[15px] text-1e1e1e">Status :</p>
+              <p class="text-sm 2xl:text-[15px] font-semibold" [ngClass]="{
+               'text-yellow-500': order.status === 'Order Placed',
+               'text-pink-500': order.status === 'Dispatched',
+               'text-blue-600': order.status === 'In Transit',
+               'text-gray-600': order.status === 'Out For Delivery',
+               'text-green-600': order.status === 'Delivered',
+               'text-orange-600': order.status === 'Returned',
+               'text-red-600': order.status === 'Cancelled'
+             }">
+                {{ order.status }}
+              </p>
+            </div>
+          </div>
+          <div class="flex xl:flex-col 2xl:flex-row items-center xl:items-start gap-2">
+            <p class="text-sm 2xl:text-[15px] text-1e1e1e">Order ID :</p>
+            <p class="text-sm 2xl:text-[15px] font-semibold text-1e1e1e">{{ order.orderId }}</p>
+          </div>
+          <div class="flex xl:flex-col 2xl:flex-row items-center xl:items-start gap-2">
+            <p class="text-sm 2xl:text-[15px] text-1e1e1e">Order Date :</p>
+            <p class="text-sm 2xl:text-[15px] font-semibold text-1e1e1e">{{ order.orderDate }}</p>
+          </div>
+        </div>
+
+        <div class="w-max flex items-center sm:justify-end gap-2 lg:gap-4">
+          <button
+            class="cursor-pointer relative capitalize overflow-hidden w-max px-3 py-1 bg-white text-08503f text-sm lg:text-base rounded-md transition-all border border-08503f ">
+            Invoice
+          </button>
+          <button (click)="openTracking(order)"
+            class="cursor-pointer relative capitalize overflow-hidden w-max px-3 py-1 bg-08503f text-white text-sm lg:text-base rounded-md transition-all duration-300 hover:scale-[1.02]
+  before:content-[''] before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-white/20 before:skew-x-[-20deg] hover:before:left-[100%] before:transition-all before:duration-500">
+            Order Details
+          </button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div *ngFor="let item of order.items" class="border-b border-eee py-2 last:border-b-0 last:pb-0">
+        <div class="flex items-start gap-3 lg:gap-5 w-full">
+          <a [routerLink]="item.link">
+            <!-- Product Image -->
+            <img [src]="item.image" alt="{{ item.name }}" class="size-12 md:size-18 object-cover rounded-md shadow" />
+          </a>
+
+          <!-- Product Details -->
+          <div class="w-[calc(100%-60px)] md:w-[calc(100%-84px)] space-y-1 md:space-y-2">
+            <div class="flex items-center justify-between gap-2 lg:gap-4">
+              <a class="w-full" [routerLink]="item.link">
+                <p class="w-full font-oldstandtt font-normal text-1e1e1e text-sm md:text-sm lg:text-base xl:text-lg truncate">
+                  {{
+                  item.name }}</p>
+              </a>
+              <!-- item Total quantitywise-->
+              <div
+                class="hidden sm:block whitespace-nowrap text-xs sm:text-[13px] md:text-base lg:text-lg font-medium text-1e1e1e">
+                ₹ {{ getItemTotal(item) | number }}
+              </div>
+            </div>
+
+            <!-- SKU, Qty, Price -->
+            <div class="sm:flex items-center justify-start gap-2 space-y-1 sm:gap-4 md:gap-6 lg:gap-8">
+              <div class="flex items-center gap-4">
+                <!-- QTY -->
+                <p class=" text-xs sm:text-[13px] md:text-sm lg:text-[15px] font-normal text-9d9b9b">Qty : <span
+                    class="text-1e1e1e">{{ item.quantity
+                    }}</span></p>
+              </div>
+              <!-- Price -->
+              <p class="text-xs sm:text-[13px] md:text-sm lg:text-[15px] font-medium text-9d9b9b">Price :
+                <span class="text-1e1e1e">₹ {{ item.price | number }}</span>
+              </p>
+              <!-- item Total quantitywise-->
+              <div
+                class="sm:hidden whitespace-nowrap text-xs sm:text-[13px] md:text-base lg:text-lg font-semibold text-1e1e1e">
+                Total: ₹ {{ getItemTotal(item) | number }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center sm:justify-end gap-2 pt-2">
+        <p class="whitespace-nowral text-[13px] md:text-base lg:text-lg font-medium text-29b369">Total Amount :</p>
+        <p class="whitespace-nowral text-[13px] md:text-base lg:text-lg font-semibold text-29b369">₹ {{
+          getOrderTotal(order) | number }}</p>
+      </div>
+    </div>
+  </div>
+  <!-- pagination -->
+  <div class="flex items-center justify-end gap-2 mt-6">
+    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1"
+      class="px-2 py-0.5 rounded-md border border-gray-300 text-gray-600 disabled:opacity-50 hover:bg-gray-100">
+      Prev
+    </button>
+
+    <ng-container *ngFor="let page of pages">
+      <button (click)="changePage(page)" [ngClass]="{
+        'bg-2a82c4 text-white': page === currentPage,
+        'bg-white text-gray-600 border border-gray-300': page !== currentPage
+      }" class="px-2 py-0.5 rounded-md hover:bg-blue-100">
+        {{ page }}
+      </button>
+    </ng-container>
+
+    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages"
+      class="px-2 py-0.5 rounded-md border border-gray-300 text-gray-600 disabled:opacity-50 hover:bg-gray-100">
+      Next
+    </button>
+  </div>
+</div>
+
+
+<!-- Track Order Popup -->
+<app-track-order *ngIf="selectedOrder" [currentStatus]="selectedOrder.status || ''"
+  [steps]="selectedOrder.tracking || []" [close]="closeTracking.bind(this)">
+</app-track-order>
